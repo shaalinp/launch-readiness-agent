@@ -1,0 +1,33 @@
+name: Bug
+description: Something the agent, a script, or a safety check did wrong.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Leave out real launch data and anything from `setup/.env`. For a security problem, use "Report a vulnerability" on the Security tab instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you said, what the agent or script did, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Any error message or script output, with personal details removed.
+      render: text
+  - type: input
+    id: setup
+    attributes:
+      label: Claude Code and Node.js
+      description: Desktop app or CLI, and `node --version`.

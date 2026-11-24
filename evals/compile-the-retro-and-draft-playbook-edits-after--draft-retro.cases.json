@@ -1,0 +1,62 @@
+{
+  "skill": "compile-the-retro-and-draft-playbook-edits-after--draft-retro",
+  "stepId": "draft-retro",
+  "cases": [
+    {
+      "id": "draft-retro-findings-and-numbered-edits",
+      "given": "Launch history for launch \"orion\" has week entries with task T-14 red in the weeks of 2025-03-03 and 2025-03-10, a go-with-conditions gate decision on 2025-04-02 whose waivers list has one item with a reason, and goal results showing one launch goal missed",
+      "expect": [
+        "launches/orion/retro.md exists and its findings name the T-14 slip with how much it slipped, the gate waiver with its item and reason, and the result against each launch goal",
+        "The proposed edits section numbers each edit individually so the launch lead can accept, edit, or reject each one on its own",
+        "Each proposed edit states what it changes: a lead time, an owner, a task to add, cut, or merge, or a new dependency"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-retro-no-past-notes-cannot-flag-repeat",
+      "given": "This is the first launch ever recorded in Launch history, there are no past retro notes, and a task slipped by two weeks on this launch",
+      "expect": [
+        "launches/<launch>/retro.md says it cannot flag whether the slip is a repeat across launches",
+        "No finding claims the task slipped on an earlier launch or calls it a cross-launch pattern"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-retro-portfolio-repeat-slip-flagged",
+      "given": "Portfolio mode: past retro notes show task T-14 slipped on launches \"orion\" and \"pavo\", and Launch history for this launch \"vega\" has T-14 red in two consecutive week entries",
+      "expect": [
+        "launches/vega/retro.md flags T-14 as a repeat pattern and names the earlier launches it slipped on",
+        "At least one numbered proposed edit addresses the repeat, such as a longer lead time or a new dependency for that task"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-retro-clean-launch-still-complete",
+      "given": "Launch history shows every task green or validated, a \"go\" gate decision with empty conditions and empty waivers, and all launch goals met",
+      "expect": [
+        "launches/<launch>/retro.md is still written with findings stating there were no slips, no waivers taken at gates, and that all goals were met",
+        "The proposed edits section is present in the file, even if it records that no changes are warranted"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-retro-replan-absorbed-slip",
+      "given": "T01 has Original due 2026-11-13; plan-v2 moved its Due to 2026-11-17, and it was done 2026-11-17. Condition C01 has Parent task T09, which was done 3 days after its Original due; C01 was met 1 day late.",
+      "expect": [
+        "The retro counts T01 as 4 days late and marks it as absorbed by a re-plan",
+        "T09 is counted as 3 days late and C01 is not counted as a separate slip"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-retro-response-times-not-invented",
+      "given": "Practice launch orion-practice. Practice history has week entries for 2027-01-11 and 2027-02-08 only (the launch lead jumped over the weeks between), and an older entry for 2027-01-04 whose sent is [1, 2] as numbers. The 2027-01-11 entry sent draft 1 for T-04 to Ana on 2027-01-11 and draft 2 for T-06 to Ben on 2027-01-11; the 2027-02-08 entry has a made-up reply from Ana on T-04 dated 2027-01-13. Ben never answered.",
+      "expect": [
+        "The retro gives Ana's response time as 2 days and labels it simulated, from a made-up practice reply",
+        "Ben's response time is not measurable, with the T-06 nudge unanswered, and the 2027-01-04 entry is named as giving no evidence",
+        "No response time is given for the weeks between 2027-01-11 and 2027-02-08, and no figure is presented as measured"
+      ],
+      "enforced": false
+    }
+  ]
+}

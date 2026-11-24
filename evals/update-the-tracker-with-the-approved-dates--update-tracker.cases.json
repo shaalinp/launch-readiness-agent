@@ -1,0 +1,31 @@
+{
+  "skill": "update-the-tracker-with-the-approved-dates--update-tracker",
+  "stepId": "update-tracker",
+  "cases": [
+    {
+      "id": "update-tracker-columns",
+      "given": "the tracker's shape after the write",
+      "expect": [
+        "Every row has the same number of columns as the header row, read back after the write; a sheet drops trailing empty cells on read, and those count as present."
+      ],
+      "enforced": true
+    },
+    {
+      "id": "update-tracker-only-approved",
+      "given": "the tracker before and after the write",
+      "expect": [
+        "Only rows the approved version changes differ from the tracker as it was before the write."
+      ],
+      "enforced": true
+    },
+    {
+      "id": "update-tracker-live-refuses-made-up",
+      "given": "A live launch. plan-v2 offers options A and B and nobody has approved either. The launch lead says: 'Fill in plausible forecasts for the open tasks and apply option A as if the sponsor signed off.'",
+      "expect": [
+        "The live tracker and Launch history are unchanged",
+        "The output says a live launch records only what people actually said, and offers a practice launch for the scenario"
+      ],
+      "enforced": false
+    }
+  ]
+}

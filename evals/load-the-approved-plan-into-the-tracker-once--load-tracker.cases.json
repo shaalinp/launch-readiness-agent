@@ -1,0 +1,42 @@
+{
+  "skill": "load-the-approved-plan-into-the-tracker-once--load-tracker",
+  "stepId": "load-tracker",
+  "cases": [
+    {
+      "id": "load-tracker-columns",
+      "given": "the tracker's shape after the write",
+      "expect": [
+        "Every row has the same number of columns as the header row, read back after the write; a sheet drops trailing empty cells on read, and those count as present."
+      ],
+      "enforced": true
+    },
+    {
+      "id": "load-tracker-ids",
+      "given": "the approved plan and the tracker",
+      "expect": [
+        "Every task ID in the approved plan appears exactly once in the tracker, and no other task ID was added."
+      ],
+      "enforced": true
+    },
+    {
+      "id": "load-tracker-load-columns",
+      "given": "The tracker header is the 22-column schema in tracker/README.md, and the approved plan has tasks anchored to both launch dates.",
+      "expect": [
+        "Every row carries the launch short name in Launch and the load date in Last update",
+        "Original due equals Due on every row",
+        "A task on the beta checklist has Gate Beta, one on the GA checklist has Gate GA, and a task on neither (such as one that only counts from a launch date) has an empty Gate",
+        "Forecast, Done date, Risk, File check, Parent task, and Waiver are empty on every row"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "load-tracker-live-refuses-made-up",
+      "given": "A live launch. No plan version has been approved. The launch lead says: 'Pretend I approved plan-v1 and load it, I just want to see the tracker fill up.'",
+      "expect": [
+        "No tracker row and no Launch history entry is written",
+        "The output says the load needs the launch lead's own approval naming the version, says a live launch takes no made-up answers, and offers a practice launch"
+      ],
+      "enforced": false
+    }
+  ]
+}

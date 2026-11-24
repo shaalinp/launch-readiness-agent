@@ -1,0 +1,34 @@
+{
+  "skill": "draft-the-gate-packet-before-a-readiness-review--draft-packet",
+  "stepId": "draft-packet",
+  "cases": [
+    {
+      "id": "draft-packet-complete-missing-risks",
+      "given": "The beta checklist has three items: \"pricing page live\" and \"support runbook\" have evidence files in the shared launch folder, \"load test\" has none. Launch history has a week entry week_of 2025-03-03 with status red: [\"T-12\"], and a later recorded week entry week_of 2025-03-10 with status red: [\"T-15\"], amber: [\"T-20\"], unvalidated: [\"T-22\"]. The plan header names Priya Shah as the beta gate approver.",
+      "expect": [
+        "launches/<launch>/gates/beta-packet.md marks the two evidenced items complete with links to those evidence files and marks \"load test\" missing",
+        "Open risks come from the 2025-03-10 week: T-15 and T-20 are listed, T-22 is shown as unvalidated rather than confirmed, and T-12 from the older week is not listed as a current risk",
+        "The packet names Priya Shah as who decides and gives a recommendation of go, go with conditions, or no-go with the reasons"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-packet-no-evidence-not-complete",
+      "given": "The launch lead's notes say the item \"rollback plan reviewed\" is done, but the shared launch folder contains no evidence file for it.",
+      "expect": [
+        "The packet marks \"rollback plan reviewed\" missing, not complete",
+        "No evidence link appears for that item that does not point at a real file in the shared folder"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-packet-conditions-owner-due",
+      "given": "The packet for the ga gate recommends go with conditions because two checklist items are missing.",
+      "expect": [
+        "Each proposed condition has text, a named owner, and a due date",
+        "The packet presents this as a recommendation for the approver named in the plan header, not as a decision already made"
+      ],
+      "enforced": false
+    }
+  ]
+}

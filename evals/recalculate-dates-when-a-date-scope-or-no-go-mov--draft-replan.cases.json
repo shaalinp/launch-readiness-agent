@@ -1,0 +1,56 @@
+{
+  "skill": "recalculate-dates-when-a-date-scope-or-no-go-mov--draft-replan",
+  "stepId": "draft-replan",
+  "cases": [
+    {
+      "id": "draft-replan-date-move-downstream-dates",
+      "given": "Latest approved plan is plan-v2.md for launch 'nova', with its rules file rules-v2.json, which counts calendar days and keeps a date that lands on a weekend. Launch date moves from 10 June to 24 June. Task chain: copy freeze is 10 days before launch, then QA signoff is 5 days before copy freeze, with the same lead-time rules as plan-v2.",
+      "expect": [
+        "Downstream due dates in plan-v3.md are recalculated along each dependency chain using the same lead times as plan-v2 (copy freeze 14 June, QA signoff 9 June)",
+        "The file is saved as launches/nova/plan-v3.md and plan-v2.md is left unchanged",
+        "The step asks the launch lead to approve by naming the version (plan-v3), and the tracker is not changed"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-replan-two-options-lettered",
+      "given": "A scope change adds a legal review that can be absorbed either by moving the launch date by one week or by dropping the in-app tour from scope",
+      "expect": [
+        "The plan shows Option A and Option B as lettered options, each with its own recalculated due dates and newly at-risk items",
+        "The approval request asks the launch lead to name the version and one option, for example plan-v3 option A",
+        "The change notice is a draft for the launch lead to send, and nothing was sent"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-replan-single-path-no-options",
+      "given": "A no-go from the launch decision has one clear fix: re-run the failed load test, which pushes only the launch date by 3 days and has no alternative way to absorb it",
+      "expect": [
+        "The plan has no lettered options and presents a single recalculated plan",
+        "The approval request asks for approval by naming the version only",
+        "The newly at-risk section lists items whose new due date falls after their dependency or owner availability, or says none are newly at risk"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-replan-based-on-latest-approved",
+      "given": "The launch folder holds plan-v2.md (approved) and plan-v3.md (a draft that was never approved). A new date change arrives.",
+      "expect": [
+        "Recalculation starts from plan-v2.md, the latest approved version, not from the unapproved plan-v3.md",
+        "The new file is named with the next version number and does not overwrite plan-v3.md",
+        "The new plan states which version it is based on"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-replan-exception-needs-reapproval",
+      "given": "Launch 'insights'. plan-v2 is approved, and its rules file rules-v2-A.json has exception X01: T04 due 2027-01-15, an exception to the four-week pricing rule granted against EA 2027-02-08. A no-go moves EA to 2027-03-01.",
+      "expect": [
+        "T04's new Due is 2027-02-01, recomputed from EA - 4w, and the plan lists X01 as needing re-approval, asking the launch lead to keep, move, or drop it",
+        "rules-v2-A.json is unchanged, and the new version's rules are saved as a new file next to plan-v3",
+        "The plan's options and notices use the dates `launch-calc.mjs effects` gave"
+      ],
+      "enforced": false
+    }
+  ]
+}

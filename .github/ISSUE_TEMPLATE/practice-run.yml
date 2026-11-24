@@ -1,0 +1,43 @@
+name: Practice run report
+description: Tell us how a practice launch went, what helped and what got in the way.
+labels: ["practice-run"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying a practice launch. Please don't paste real launch data, names, or anything from `setup/.env`. This issue is public.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The version in CHANGELOG.md, or the release you downloaded.
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: got-to
+    attributes:
+      label: How far did you get?
+      options:
+        - Setup did not finish
+        - A plan to approve
+        - One or more scored weeks
+        - A gate packet or decision
+        - A re-plan
+        - The retro
+    validations:
+      required: true
+  - type: textarea
+    id: helped
+    attributes:
+      label: What was useful?
+  - type: textarea
+    id: friction
+    attributes:
+      label: Where did it go wrong or slow you down?
+      description: What you said, what the agent did, and what you expected.
+  - type: input
+    id: setup
+    attributes:
+      label: Claude Code and Node.js
+      description: Desktop app or CLI, and `node --version`.

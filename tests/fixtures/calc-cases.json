@@ -1,0 +1,5954 @@
+{
+ "sets": [
+  {},
+  {
+   "launches/insights/rules-v1.json": "{\n  \"schema\": \"launch-rules/1\",\n  \"launch\": \"insights\",\n  \"plan_version\": \"v1\",\n  \"option\": null,\n  \"based_on\": null,\n  \"tier\": 2,\n  \"anchors\": {\n    \"EA\": \"2027-02-08\",\n    \"GA\": \"2027-03-22\",\n    \"plan_approval\": \"2026-11-09\"\n  },\n  \"calendar\": {\n    \"weekend\": [\n      \"Sat\",\n      \"Sun\"\n    ],\n    \"holidays\": [\n      {\n        \"date\": \"2026-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2026-01-19\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2026-02-16\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2026-05-25\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2026-06-19\",\n        \"name\": \"Juneteenth National Independence Day\"\n      },\n      {\n        \"date\": \"2026-07-03\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2026-07-04\"\n      },\n      {\n        \"date\": \"2026-09-07\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2026-10-12\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2026-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2026-11-26\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2026-12-25\",\n        \"name\": \"Christmas Day\"\n      },\n      {\n        \"date\": \"2027-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2027-01-18\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2027-02-15\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2027-05-31\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2027-06-18\",\n        \"name\": \"Juneteenth National Independence Day (observed)\",\n        \"actual\": \"2027-06-19\"\n      },\n      {\n        \"date\": \"2027-07-05\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2027-07-04\"\n      },\n      {\n        \"date\": \"2027-09-06\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2027-10-11\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2027-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2027-11-25\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2027-12-24\",\n        \"name\": \"Christmas Day (observed)\",\n        \"actual\": \"2027-12-25\"\n      },\n      {\n        \"date\": \"2027-12-31\",\n        \"name\": \"New Year's Day (observed)\",\n        \"actual\": \"2028-01-01\"\n      }\n    ],\n    \"holiday_observed\": \"as-listed\",\n    \"due_on_non_working_day\": \"previous-working-day\"\n  },\n  \"tasks\": [\n    {\n      \"id\": \"T01\",\n      \"name\": \"Success metric, baseline, and target agreed\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"Plan approval + 5 working days\",\n      \"anchor\": \"plan_approval\",\n      \"offset\": 5,\n      \"unit\": \"working\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Metric note in the launch folder\"\n    },\n    {\n      \"id\": \"T02\",\n      \"name\": \"Naming and trademark check\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 12w\",\n      \"anchor\": \"EA\",\n      \"offset\": -84,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T03\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Naming decision note\"\n    },\n    {\n      \"id\": \"T03\",\n      \"name\": \"Positioning and messaging doc\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 8w\",\n      \"anchor\": \"EA\",\n      \"offset\": -56,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T05\",\n        \"T08\",\n        \"T12\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Messaging doc\"\n    },\n    {\n      \"id\": \"T04\",\n      \"name\": \"Pricing and packaging approved\",\n      \"seat\": \"Pricing and packaging\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T06\",\n        \"T07\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Pricing approval record\"\n    },\n    {\n      \"id\": \"T05\",\n      \"name\": \"Customer-facing launch deck\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Deck\"\n    },\n    {\n      \"id\": \"T06\",\n      \"name\": \"Billing and quoting set up for the new SKU\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Billing setup confirmation\"\n    },\n    {\n      \"id\": \"T07\",\n      \"name\": \"Sales pricing slide and discount guidance\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Pricing slide\"\n    },\n    {\n      \"id\": \"T08\",\n      \"name\": \"Legal review of claims, terms, and NDA for early access\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T09\",\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Legal sign-off\"\n    },\n    {\n      \"id\": \"T09\",\n      \"name\": \"Early-access terms or NDA in place\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Signed terms or NDA template\"\n    },\n    {\n      \"id\": \"T10\",\n      \"name\": \"Sales and customer success enablement session\",\n      \"seat\": \"Enablement\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 1w\",\n      \"anchor\": \"EA\",\n      \"offset\": -7,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Session recording and one-pager\"\n    },\n    {\n      \"id\": \"T11\",\n      \"name\": \"Demo environment and demo script\",\n      \"seat\": \"Sales engineering\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Demo environment link and script\"\n    },\n    {\n      \"id\": \"T12\",\n      \"name\": \"Help center articles\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Published or staged articles\"\n    },\n    {\n      \"id\": \"T13\",\n      \"name\": \"Early-access customer list, invites, and feedback plan\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Customer list and feedback plan\"\n    },\n    {\n      \"id\": \"T14\",\n      \"name\": \"Beta readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T15\",\n      \"name\": \"Beta feedback summary and go-forward decisions\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 5w\",\n      \"anchor\": \"GA\",\n      \"offset\": -35,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T16\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Feedback summary\"\n    },\n    {\n      \"id\": \"T16\",\n      \"name\": \"Website and in-app copy\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T17\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Copy, reviewed\"\n    },\n    {\n      \"id\": \"T17\",\n      \"name\": \"Legal copy review for GA\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Legal sign-off on copy\"\n    },\n    {\n      \"id\": \"T18\",\n      \"name\": \"Support runbook and escalation path\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Runbook\"\n    },\n    {\n      \"id\": \"T20\",\n      \"name\": \"Release notes and customer announcement\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Release notes draft\"\n    },\n    {\n      \"id\": \"T21\",\n      \"name\": \"GA readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 8d\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T22\",\n      \"name\": \"GA launch checklist complete\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 1d\",\n      \"anchor\": \"GA\",\n      \"offset\": -1,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Checklist\"\n    }\n  ],\n  \"dependencies\": {\n    \"slack\": {\n      \"unit\": \"calendar\",\n      \"min_gap_days\": 0,\n      \"definition\": \"Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived.\"\n    },\n    \"propagation\": \"push-past-blocker\"\n  },\n  \"scoring\": {\n    \"precedence\": [\n      {\n        \"id\": \"overdue\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"forecast-after-due\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"breaks-rule\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"blocked-slip-exceeds-slack\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"no-due-date\",\n        \"risk\": \"amber\"\n      },\n      {\n        \"id\": \"due-soon-not-started\",\n        \"risk\": \"amber\",\n        \"days\": 7\n      },\n      {\n        \"id\": \"stale\",\n        \"risk\": \"amber\",\n        \"days\": 14\n      },\n      {\n        \"id\": \"blocked-within-slack\",\n        \"risk\": \"amber\"\n      }\n    ]\n  },\n  \"gates\": [\n    {\n      \"id\": \"beta\",\n      \"name\": \"Beta (early access) readiness review\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T03\",\n        \"T04\",\n        \"T08\",\n        \"T09\",\n        \"T11\",\n        \"T13\",\n        \"T12\"\n      ]\n    },\n    {\n      \"id\": \"ga\",\n      \"name\": \"GA readiness review\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T15\",\n        \"T16\",\n        \"T17\",\n        \"T06\",\n        \"T10\",\n        \"T18\",\n        \"T20\"\n      ]\n    }\n  ],\n  \"conditions\": [],\n  \"exceptions\": [],\n  \"unsupported\": []\n}\n"
+  },
+  {
+   "launches/insights/rules-v1.json": "{\n  \"schema\": \"launch-rules/1\",\n  \"launch\": \"insights\",\n  \"plan_version\": \"v1\",\n  \"option\": null,\n  \"based_on\": null,\n  \"tier\": 2,\n  \"anchors\": {\n    \"EA\": \"2027-02-08\",\n    \"GA\": \"2027-03-22\",\n    \"plan_approval\": \"2026-11-09\"\n  },\n  \"calendar\": {\n    \"weekend\": [\n      \"Sat\",\n      \"Sun\"\n    ],\n    \"holidays\": [\n      {\n        \"date\": \"2026-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2026-01-19\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2026-02-16\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2026-05-25\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2026-06-19\",\n        \"name\": \"Juneteenth National Independence Day\"\n      },\n      {\n        \"date\": \"2026-07-03\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2026-07-04\"\n      },\n      {\n        \"date\": \"2026-09-07\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2026-10-12\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2026-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2026-11-26\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2026-12-25\",\n        \"name\": \"Christmas Day\"\n      },\n      {\n        \"date\": \"2027-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2027-01-18\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2027-02-15\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2027-05-31\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2027-06-18\",\n        \"name\": \"Juneteenth National Independence Day (observed)\",\n        \"actual\": \"2027-06-19\"\n      },\n      {\n        \"date\": \"2027-07-05\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2027-07-04\"\n      },\n      {\n        \"date\": \"2027-09-06\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2027-10-11\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2027-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2027-11-25\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2027-12-24\",\n        \"name\": \"Christmas Day (observed)\",\n        \"actual\": \"2027-12-25\"\n      },\n      {\n        \"date\": \"2027-12-31\",\n        \"name\": \"New Year's Day (observed)\",\n        \"actual\": \"2028-01-01\"\n      }\n    ],\n    \"holiday_observed\": \"as-listed\",\n    \"due_on_non_working_day\": \"previous-working-day\"\n  },\n  \"tasks\": [\n    {\n      \"id\": \"T01\",\n      \"name\": \"Success metric, baseline, and target agreed\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"Plan approval + 5 working days\",\n      \"anchor\": \"plan_approval\",\n      \"offset\": 5,\n      \"unit\": \"working\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Metric note in the launch folder\"\n    },\n    {\n      \"id\": \"T02\",\n      \"name\": \"Naming and trademark check\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 12w\",\n      \"anchor\": \"EA\",\n      \"offset\": -84,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T03\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Naming decision note\"\n    },\n    {\n      \"id\": \"T03\",\n      \"name\": \"Positioning and messaging doc\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 8w\",\n      \"anchor\": \"EA\",\n      \"offset\": -56,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T05\",\n        \"T08\",\n        \"T12\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Messaging doc\"\n    },\n    {\n      \"id\": \"T04\",\n      \"name\": \"Pricing and packaging approved\",\n      \"seat\": \"Pricing and packaging\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T06\",\n        \"T07\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Pricing approval record\"\n    },\n    {\n      \"id\": \"T05\",\n      \"name\": \"Customer-facing launch deck\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Deck\"\n    },\n    {\n      \"id\": \"T06\",\n      \"name\": \"Billing and quoting set up for the new SKU\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Billing setup confirmation\"\n    },\n    {\n      \"id\": \"T07\",\n      \"name\": \"Sales pricing slide and discount guidance\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Pricing slide\"\n    },\n    {\n      \"id\": \"T08\",\n      \"name\": \"Legal review of claims, terms, and NDA for early access\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T09\",\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Legal sign-off\"\n    },\n    {\n      \"id\": \"T09\",\n      \"name\": \"Early-access terms or NDA in place\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Signed terms or NDA template\"\n    },\n    {\n      \"id\": \"T10\",\n      \"name\": \"Sales and customer success enablement session\",\n      \"seat\": \"Enablement\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 1w\",\n      \"anchor\": \"EA\",\n      \"offset\": -7,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Session recording and one-pager\"\n    },\n    {\n      \"id\": \"T11\",\n      \"name\": \"Demo environment and demo script\",\n      \"seat\": \"Sales engineering\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Demo environment link and script\"\n    },\n    {\n      \"id\": \"T12\",\n      \"name\": \"Help center articles\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Published or staged articles\"\n    },\n    {\n      \"id\": \"T13\",\n      \"name\": \"Early-access customer list, invites, and feedback plan\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Customer list and feedback plan\"\n    },\n    {\n      \"id\": \"T14\",\n      \"name\": \"Beta readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T15\",\n      \"name\": \"Beta feedback summary and go-forward decisions\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 5w\",\n      \"anchor\": \"GA\",\n      \"offset\": -35,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T16\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Feedback summary\"\n    },\n    {\n      \"id\": \"T16\",\n      \"name\": \"Website and in-app copy\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T17\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Copy, reviewed\"\n    },\n    {\n      \"id\": \"T17\",\n      \"name\": \"Legal copy review for GA\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Legal sign-off on copy\"\n    },\n    {\n      \"id\": \"T18\",\n      \"name\": \"Support runbook and escalation path\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Runbook\"\n    },\n    {\n      \"id\": \"T20\",\n      \"name\": \"Release notes and customer announcement\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Release notes draft\"\n    },\n    {\n      \"id\": \"T21\",\n      \"name\": \"GA readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 8d\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T22\",\n      \"name\": \"GA launch checklist complete\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 1d\",\n      \"anchor\": \"GA\",\n      \"offset\": -1,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Checklist\"\n    }\n  ],\n  \"dependencies\": {\n    \"slack\": {\n      \"unit\": \"calendar\",\n      \"min_gap_days\": 0,\n      \"definition\": \"Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived.\"\n    },\n    \"propagation\": \"push-past-blocker\"\n  },\n  \"scoring\": {\n    \"precedence\": [\n      {\n        \"id\": \"overdue\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"forecast-after-due\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"breaks-rule\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"blocked-slip-exceeds-slack\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"no-due-date\",\n        \"risk\": \"amber\"\n      },\n      {\n        \"id\": \"due-soon-not-started\",\n        \"risk\": \"amber\",\n        \"days\": 7\n      },\n      {\n        \"id\": \"stale\",\n        \"risk\": \"amber\",\n        \"days\": 14\n      },\n      {\n        \"id\": \"blocked-within-slack\",\n        \"risk\": \"amber\"\n      }\n    ]\n  },\n  \"gates\": [\n    {\n      \"id\": \"beta\",\n      \"name\": \"Beta (early access) readiness review\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T03\",\n        \"T04\",\n        \"T08\",\n        \"T09\",\n        \"T11\",\n        \"T13\",\n        \"T12\"\n      ]\n    },\n    {\n      \"id\": \"ga\",\n      \"name\": \"GA readiness review\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T15\",\n        \"T16\",\n        \"T17\",\n        \"T06\",\n        \"T10\",\n        \"T18\",\n        \"T20\"\n      ]\n    }\n  ],\n  \"conditions\": [],\n  \"exceptions\": [],\n  \"unsupported\": []\n}\n",
+   "tracker/launch-tracker.csv": "Launch,Task ID,Task,Seat,Owner,Gate,Lead time,Original due,Due,Forecast,Done date,Status,Risk,Blocked by,Blocks,Deliverable,File check,Parent task,Waiver,Flag,Last update,Notes\ninsights,T01,\"Success metric, baseline, and target agreed\",PM,Pat,,Plan approval + 5 working days,2026-11-17,2026-11-17,,2026-11-20,Done,,,,,,,,,2026-12-28,\ninsights,T02,Naming and trademark check,PMM,Pat,,EA - 12w,2026-11-16,2026-11-16,,,Not started,,,T03,,,,,,2026-12-28,\ninsights,T03,Positioning and messaging doc,PMM,Pat,,EA - 8w,2026-12-14,2026-12-14,,,In progress,,T02,T05; T08; T12,,,,,,2026-12-28,\ninsights,T04,Pricing and packaging approved,Pricing and packaging,Pat,,EA - 4w,2027-01-11,2027-01-11,2027-01-20,,In progress,,,T06; T07,,,,,,2026-12-28,pricing committee moved\ninsights,T05,Customer-facing launch deck,PMM,Pat,,EA - 3w,2027-01-15,2027-01-15,,,In progress,,T03,T10,,,,,,2026-12-28,\ninsights,T06,Billing and quoting set up for the new SKU,PM,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T04,,,,,,,2026-12-01,\ninsights,T07,Sales pricing slide and discount guidance,PMM,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T04,T10,,,,,,2026-12-28,\ninsights,T08,\"Legal review of claims, terms, and NDA for early access\",Legal,Pat,,EA - 4w,2027-01-11,2027-01-11,,,In progress,,T03,T09; T13,,,,,,2026-12-28,\ninsights,T09,Early-access terms or NDA in place,Legal,Pat,,EA - 3w,2027-01-15,2027-01-15,,,In progress,,T08,T13,,,,,,2026-12-28,\ninsights,T10,Sales and customer success enablement session,Enablement,Pat,,EA - 1w,2027-02-01,2027-02-01,,,In progress,,T05; T07; T11,,,,,,,2026-12-28,\ninsights,T11,Demo environment and demo script,Sales engineering,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,,T10,,,,,,2026-12-28,\ninsights,T12,Help center articles,Customer success,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T03,,,,,,,2026-12-28,\ninsights,T13,\"Early-access customer list, invites, and feedback plan\",Customer success,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T08; T09,,,,,,,2026-12-28,\ninsights,T14,Beta readiness review packet,Launch lead,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,,,,,,,,2026-12-28,\ninsights,T15,Beta feedback summary and go-forward decisions,PM,Pat,,GA - 5w,2027-02-12,2027-02-12,,,In progress,,,T16,,,,,,2026-12-28,\ninsights,T16,Website and in-app copy,PMM,Pat,,GA - 2w,2027-03-08,2027-03-08,,,In progress,,T15,T17,,,,,,2026-12-28,\ninsights,T17,Legal copy review for GA,Legal,Pat,,GA - 10d,2027-03-12,2027-03-12,,,In progress,,T16,,,,,,,2026-12-28,\ninsights,T18,Support runbook and escalation path,Customer success,Pat,,GA - 2w,2027-03-08,2027-03-08,,,In progress,,,,,,,,,2026-12-28,\ninsights,T20,Release notes and customer announcement,PMM,Pat,,GA - 10d,2027-03-12,2027-03-12,,,In progress,,,,,,,,,2026-12-28,\ninsights,T21,GA readiness review packet,Launch lead,Pat,,GA - 8d,2027-03-12,2027-03-12,,,In progress,,,,,,,,,2026-12-28,\ninsights,T22,GA launch checklist complete,Launch lead,Pat,,GA - 1d,2027-03-19,2027-03-19,,,In progress,,,,,,,,,2026-12-28,\n"
+  },
+  {
+   "launches/insights/rules-v1.json": "{\n  \"schema\": \"launch-rules/1\",\n  \"launch\": \"insights\",\n  \"plan_version\": \"v1\",\n  \"option\": null,\n  \"based_on\": null,\n  \"tier\": 2,\n  \"anchors\": {\n    \"EA\": \"2027-02-08\",\n    \"GA\": \"2027-03-22\",\n    \"plan_approval\": \"2026-11-09\"\n  },\n  \"calendar\": {\n    \"weekend\": [\n      \"Sat\",\n      \"Sun\"\n    ],\n    \"holidays\": [\n      {\n        \"date\": \"2026-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2026-01-19\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2026-02-16\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2026-05-25\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2026-06-19\",\n        \"name\": \"Juneteenth National Independence Day\"\n      },\n      {\n        \"date\": \"2026-07-03\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2026-07-04\"\n      },\n      {\n        \"date\": \"2026-09-07\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2026-10-12\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2026-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2026-11-26\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2026-12-25\",\n        \"name\": \"Christmas Day\"\n      },\n      {\n        \"date\": \"2027-01-01\",\n        \"name\": \"New Year's Day\"\n      },\n      {\n        \"date\": \"2027-01-18\",\n        \"name\": \"Birthday of Martin Luther King, Jr.\"\n      },\n      {\n        \"date\": \"2027-02-15\",\n        \"name\": \"Washington's Birthday\"\n      },\n      {\n        \"date\": \"2027-05-31\",\n        \"name\": \"Memorial Day\"\n      },\n      {\n        \"date\": \"2027-06-18\",\n        \"name\": \"Juneteenth National Independence Day (observed)\",\n        \"actual\": \"2027-06-19\"\n      },\n      {\n        \"date\": \"2027-07-05\",\n        \"name\": \"Independence Day (observed)\",\n        \"actual\": \"2027-07-04\"\n      },\n      {\n        \"date\": \"2027-09-06\",\n        \"name\": \"Labor Day\"\n      },\n      {\n        \"date\": \"2027-10-11\",\n        \"name\": \"Columbus Day\"\n      },\n      {\n        \"date\": \"2027-11-11\",\n        \"name\": \"Veterans Day\"\n      },\n      {\n        \"date\": \"2027-11-25\",\n        \"name\": \"Thanksgiving Day\"\n      },\n      {\n        \"date\": \"2027-12-24\",\n        \"name\": \"Christmas Day (observed)\",\n        \"actual\": \"2027-12-25\"\n      },\n      {\n        \"date\": \"2027-12-31\",\n        \"name\": \"New Year's Day (observed)\",\n        \"actual\": \"2028-01-01\"\n      }\n    ],\n    \"holiday_observed\": \"as-listed\",\n    \"due_on_non_working_day\": \"previous-working-day\"\n  },\n  \"tasks\": [\n    {\n      \"id\": \"T01\",\n      \"name\": \"Success metric, baseline, and target agreed\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"Plan approval + 5 working days\",\n      \"anchor\": \"plan_approval\",\n      \"offset\": 5,\n      \"unit\": \"working\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Metric note in the launch folder\"\n    },\n    {\n      \"id\": \"T02\",\n      \"name\": \"Naming and trademark check\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 12w\",\n      \"anchor\": \"EA\",\n      \"offset\": -84,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T03\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Naming decision note\"\n    },\n    {\n      \"id\": \"T03\",\n      \"name\": \"Positioning and messaging doc\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 8w\",\n      \"anchor\": \"EA\",\n      \"offset\": -56,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T05\",\n        \"T08\",\n        \"T12\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Messaging doc\"\n    },\n    {\n      \"id\": \"T04\",\n      \"name\": \"Pricing and packaging approved\",\n      \"seat\": \"Pricing and packaging\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T06\",\n        \"T07\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Pricing approval record\"\n    },\n    {\n      \"id\": \"T05\",\n      \"name\": \"Customer-facing launch deck\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Deck\"\n    },\n    {\n      \"id\": \"T06\",\n      \"name\": \"Billing and quoting set up for the new SKU\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Billing setup confirmation\"\n    },\n    {\n      \"id\": \"T07\",\n      \"name\": \"Sales pricing slide and discount guidance\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": null,\n      \"deliverable\": \"Pricing slide\"\n    },\n    {\n      \"id\": \"T08\",\n      \"name\": \"Legal review of claims, terms, and NDA for early access\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 4w\",\n      \"anchor\": \"EA\",\n      \"offset\": -28,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T09\",\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Legal sign-off\"\n    },\n    {\n      \"id\": \"T09\",\n      \"name\": \"Early-access terms or NDA in place\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 3w\",\n      \"anchor\": \"EA\",\n      \"offset\": -21,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T13\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Signed terms or NDA template\"\n    },\n    {\n      \"id\": \"T10\",\n      \"name\": \"Sales and customer success enablement session\",\n      \"seat\": \"Enablement\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 1w\",\n      \"anchor\": \"EA\",\n      \"offset\": -7,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Session recording and one-pager\"\n    },\n    {\n      \"id\": \"T11\",\n      \"name\": \"Demo environment and demo script\",\n      \"seat\": \"Sales engineering\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T10\"\n      ],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Demo environment link and script\"\n    },\n    {\n      \"id\": \"T12\",\n      \"name\": \"Help center articles\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Published or staged articles\"\n    },\n    {\n      \"id\": \"T13\",\n      \"name\": \"Early-access customer list, invites, and feedback plan\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"beta\",\n      \"deliverable\": \"Customer list and feedback plan\"\n    },\n    {\n      \"id\": \"T14\",\n      \"name\": \"Beta readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"EA - 2w\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T15\",\n      \"name\": \"Beta feedback summary and go-forward decisions\",\n      \"seat\": \"PM\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 5w\",\n      \"anchor\": \"GA\",\n      \"offset\": -35,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T16\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Feedback summary\"\n    },\n    {\n      \"id\": \"T16\",\n      \"name\": \"Website and in-app copy\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [\n        \"T17\"\n      ],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Copy, reviewed\"\n    },\n    {\n      \"id\": \"T17\",\n      \"name\": \"Legal copy review for GA\",\n      \"seat\": \"Legal\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Legal sign-off on copy\"\n    },\n    {\n      \"id\": \"T18\",\n      \"name\": \"Support runbook and escalation path\",\n      \"seat\": \"Customer success\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 2w\",\n      \"anchor\": \"GA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Runbook\"\n    },\n    {\n      \"id\": \"T20\",\n      \"name\": \"Release notes and customer announcement\",\n      \"seat\": \"PMM\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 10d\",\n      \"anchor\": \"GA\",\n      \"offset\": -10,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": \"ga\",\n      \"deliverable\": \"Release notes draft\"\n    },\n    {\n      \"id\": \"T21\",\n      \"name\": \"GA readiness review packet\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"lead_time\": \"GA - 8d\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Gate packet\"\n    },\n    {\n      \"id\": \"T22\",\n      \"name\": \"GA launch checklist complete\",\n      \"seat\": \"Launch lead\",\n      \"tiers\": [\n        1,\n        2,\n        3\n      ],\n      \"lead_time\": \"GA - 1d\",\n      \"anchor\": \"GA\",\n      \"offset\": -1,\n      \"unit\": \"calendar\",\n      \"blocks\": [],\n      \"gate\": null,\n      \"deliverable\": \"Checklist\"\n    }\n  ],\n  \"dependencies\": {\n    \"slack\": {\n      \"unit\": \"calendar\",\n      \"min_gap_days\": 0,\n      \"definition\": \"Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived.\"\n    },\n    \"propagation\": \"push-past-blocker\"\n  },\n  \"scoring\": {\n    \"precedence\": [\n      {\n        \"id\": \"overdue\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"forecast-after-due\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"breaks-rule\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"blocked-slip-exceeds-slack\",\n        \"risk\": \"red\"\n      },\n      {\n        \"id\": \"no-due-date\",\n        \"risk\": \"amber\"\n      },\n      {\n        \"id\": \"due-soon-not-started\",\n        \"risk\": \"amber\",\n        \"days\": 7\n      },\n      {\n        \"id\": \"stale\",\n        \"risk\": \"amber\",\n        \"days\": 14\n      },\n      {\n        \"id\": \"blocked-within-slack\",\n        \"risk\": \"amber\"\n      }\n    ]\n  },\n  \"gates\": [\n    {\n      \"id\": \"beta\",\n      \"name\": \"Beta (early access) readiness review\",\n      \"anchor\": \"EA\",\n      \"offset\": -14,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T03\",\n        \"T04\",\n        \"T08\",\n        \"T09\",\n        \"T11\",\n        \"T13\",\n        \"T12\"\n      ]\n    },\n    {\n      \"id\": \"ga\",\n      \"name\": \"GA readiness review\",\n      \"anchor\": \"GA\",\n      \"offset\": -8,\n      \"unit\": \"calendar\",\n      \"tiers\": [\n        1,\n        2\n      ],\n      \"checklist\": [\n        \"T15\",\n        \"T16\",\n        \"T17\",\n        \"T06\",\n        \"T10\",\n        \"T18\",\n        \"T20\"\n      ]\n    }\n  ],\n  \"conditions\": [],\n  \"exceptions\": [],\n  \"unsupported\": []\n}\n",
+   "tracker/launch-tracker.csv": "Launch,Task ID,Task,Seat,Owner,Gate,Lead time,Original due,Due,Forecast,Done date,Status,Risk,Blocked by,Blocks,Deliverable,File check,Parent task,Waiver,Flag,Last update,Notes\ninsights,T01,\"Success metric, baseline, and target agreed\",PM,Pat,,Plan approval + 5 working days,2026-11-17,2026-11-17,,2026-11-20,Done,,,,,,,,,2026-12-28,\ninsights,T02,Naming and trademark check,PMM,Pat,,EA - 12w,2026-11-16,2026-11-16,,,Not started,,,T03,,,,,,2026-12-28,\ninsights,T03,Positioning and messaging doc,PMM,Pat,,EA - 8w,2026-12-14,2026-12-14,,,In progress,,T02,T05; T08; T12,,,,,,2026-12-28,\ninsights,T04,Pricing and packaging approved,Pricing and packaging,Pat,,EA - 4w,2027-01-11,2027-01-11,2027-01-20,,In progress,,,T06; T07,,,,,,2026-12-28,pricing committee moved\ninsights,T05,Customer-facing launch deck,PMM,Pat,,EA - 3w,2027-01-15,2027-01-15,,,In progress,,T03,T10,,,,,,2026-12-28,\ninsights,T06,Billing and quoting set up for the new SKU,PM,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T04,,,,,,,2026-12-01,\ninsights,T07,Sales pricing slide and discount guidance,PMM,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T04,T10,,,,,,2026-12-28,\ninsights,T08,\"Legal review of claims, terms, and NDA for early access\",Legal,Pat,,EA - 4w,2027-01-11,2027-01-11,,,In progress,,T03,T09; T13,,,,,,2026-12-28,\ninsights,T09,Early-access terms or NDA in place,Legal,Pat,,EA - 3w,2027-01-15,2027-01-15,,,In progress,,T08,T13,,,,,,2026-12-28,\ninsights,T10,Sales and customer success enablement session,Enablement,Pat,,EA - 1w,2027-02-01,2027-02-01,,,In progress,,T05; T07; T11,,,,,,,2026-12-28,\ninsights,T11,Demo environment and demo script,Sales engineering,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,,T10,,,,,,2026-12-28,\ninsights,T12,Help center articles,Customer success,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T03,,,,,,,2026-12-28,\ninsights,T13,\"Early-access customer list, invites, and feedback plan\",Customer success,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,T08; T09,,,,,,,2026-12-28,\ninsights,T14,Beta readiness review packet,Launch lead,Pat,,EA - 2w,2027-01-25,2027-01-25,,,In progress,,,,,,,,,2026-12-28,\ninsights,T15,Beta feedback summary and go-forward decisions,PM,Pat,,GA - 5w,2027-02-12,2027-02-12,,,In progress,,,T16,,,,,,2026-12-28,\ninsights,T16,Website and in-app copy,PMM,Pat,,GA - 2w,2027-03-08,2027-03-08,,,In progress,,T15,T17,,,,,,2026-12-28,\ninsights,T17,Legal copy review for GA,Legal,Pat,,GA - 10d,2027-03-12,2027-03-12,,,In progress,,T16,,,,,,,2026-12-28,\ninsights,T18,Support runbook and escalation path,Customer success,Pat,,GA - 2w,2027-03-08,2027-03-08,,,In progress,,,,,,,,,2026-12-28,\ninsights,T20,Release notes and customer announcement,PMM,Pat,,GA - 10d,2027-03-12,2027-03-12,,,In progress,,,,,,,,,2026-12-28,\ninsights,T21,GA readiness review packet,Launch lead,Pat,,GA - 8d,2027-03-12,2027-03-12,,,In progress,,,,,,,,,2026-12-28,\ninsights,T22,GA launch checklist complete,Launch lead,Pat,,GA - 1d,2027-03-19,2027-03-19,,,In progress,,,,,,,,,2026-12-28,\n",
+   "launches/insights/weeks/2027-01-04-option-A.json": "{\n  \"option\": \"A\",\n  \"label\": \"Move GA by two weeks\",\n  \"plan_version\": \"v2\",\n  \"anchors\": {\n    \"GA\": \"2027-04-05\"\n  },\n  \"dues\": [],\n  \"waivers\": [],\n  \"exceptions\": {\n    \"keep\": [],\n    \"move\": [],\n    \"drop\": []\n  },\n  \"add_tasks\": [],\n  \"drop_tasks\": []\n}\n"
+  }
+ ],
+ "cases": [
+  {
+   "name": "draft rules for a tier 1 launch",
+   "args": [
+    "draft-rules",
+    "--playbook",
+    "playbook/playbook.md",
+    "--launch",
+    "insights",
+    "--tier",
+    "1",
+    "--ea",
+    "2027-02-08",
+    "--ga",
+    "2027-03-22",
+    "--plan-approval",
+    "2026-11-09"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "draft-rules",
+    "saved": null,
+    "review": [
+     "US federal holidays for 2026, 2027, on their observed days. Add any other national or company holidays the intake names.",
+     "Confirm the slack definition and how slips propagate (dependencies) with the plan: the starter playbook describes slack without defining it.",
+     "The scoring predicates are the starter's Risk scoring rules. If the playbook's rules say something they do not express, list it under unsupported."
+    ],
+    "errors": [],
+    "warnings": [],
+    "unsupported": [],
+    "dues": {
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "tier": 1,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "tasks": [
+      {
+       "task": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "gate": null,
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "rule_due": "2026-11-17",
+       "due": "2026-11-17",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "task": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "rule_due": "2026-11-16",
+       "due": "2026-11-16",
+       "source": "rule",
+       "blocks": [
+        "T03"
+       ],
+       "blocked_by": [],
+       "deliverable": "Naming decision note"
+      },
+      {
+       "task": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "gate": "beta",
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "rule_due": "2026-12-14",
+       "due": "2026-12-14",
+       "source": "rule",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "blocked_by": [
+        "T02"
+       ],
+       "deliverable": "Messaging doc"
+      },
+      {
+       "task": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "blocked_by": [],
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "task": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Deck"
+      },
+      {
+       "task": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "task": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Pricing slide"
+      },
+      {
+       "task": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "task": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T13"
+       ],
+       "blocked_by": [
+        "T08"
+       ],
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "task": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "gate": "ga",
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "rule_due": "2027-02-01",
+       "due": "2027-02-01",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T05",
+        "T07",
+        "T11"
+       ],
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "task": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [],
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "task": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "task": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T08",
+        "T09"
+       ],
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "task": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "rule_due": "2027-02-12",
+       "moved_off": {
+        "from": "2027-02-15",
+        "because": "Washington's Birthday"
+       },
+       "due": "2027-02-12",
+       "source": "rule",
+       "blocks": [
+        "T16"
+       ],
+       "blocked_by": [],
+       "deliverable": "Feedback summary"
+      },
+      {
+       "task": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [
+        "T17"
+       ],
+       "blocked_by": [
+        "T15"
+       ],
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "task": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T16"
+       ],
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "task": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Runbook"
+      },
+      {
+       "task": "T19",
+       "name": "Analyst and press briefing",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Briefing deck and schedule"
+      },
+      {
+       "task": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Release notes draft"
+      },
+      {
+       "task": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "moved_off": {
+        "from": "2027-03-14",
+        "because": "weekend"
+       },
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "rule_due": "2027-03-19",
+       "moved_off": {
+        "from": "2027-03-21",
+        "because": "weekend"
+       },
+       "due": "2027-03-19",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Checklist"
+      }
+     ],
+     "gates": [
+      {
+       "gate": "beta",
+       "name": "Beta (early access) readiness review",
+       "review": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "review_date": "2027-01-25",
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "gate": "ga",
+       "name": "GA readiness review",
+       "review": "GA readiness review",
+       "anchor": "GA",
+       "review_date": "2027-03-12",
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20",
+        "T19"
+       ]
+      }
+     ]
+    },
+    "rules": {
+     "schema": "launch-rules/1",
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "based_on": null,
+     "tier": 1,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "calendar": {
+      "weekend": [
+       "Sat",
+       "Sun"
+      ],
+      "holidays": [
+       {
+        "date": "2026-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2026-01-19",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2026-02-16",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2026-05-25",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2026-06-19",
+        "name": "Juneteenth National Independence Day"
+       },
+       {
+        "date": "2026-07-03",
+        "name": "Independence Day (observed)",
+        "actual": "2026-07-04"
+       },
+       {
+        "date": "2026-09-07",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2026-10-12",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2026-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2026-11-26",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2026-12-25",
+        "name": "Christmas Day"
+       },
+       {
+        "date": "2027-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2027-01-18",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2027-02-15",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2027-05-31",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2027-06-18",
+        "name": "Juneteenth National Independence Day (observed)",
+        "actual": "2027-06-19"
+       },
+       {
+        "date": "2027-07-05",
+        "name": "Independence Day (observed)",
+        "actual": "2027-07-04"
+       },
+       {
+        "date": "2027-09-06",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2027-10-11",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2027-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2027-11-25",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2027-12-24",
+        "name": "Christmas Day (observed)",
+        "actual": "2027-12-25"
+       },
+       {
+        "date": "2027-12-31",
+        "name": "New Year's Day (observed)",
+        "actual": "2028-01-01"
+       }
+      ],
+      "holiday_observed": "as-listed",
+      "due_on_non_working_day": "previous-working-day"
+     },
+     "tasks": [
+      {
+       "id": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "offset": 5,
+       "unit": "working",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "id": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "offset": -84,
+       "unit": "calendar",
+       "blocks": [
+        "T03"
+       ],
+       "gate": null,
+       "deliverable": "Naming decision note"
+      },
+      {
+       "id": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "offset": -56,
+       "unit": "calendar",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "gate": "beta",
+       "deliverable": "Messaging doc"
+      },
+      {
+       "id": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "gate": "beta",
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "id": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Deck"
+      },
+      {
+       "id": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "id": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Pricing slide"
+      },
+      {
+       "id": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "id": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "id": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "offset": -7,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "id": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": "beta",
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "id": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "id": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "id": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "offset": -35,
+       "unit": "calendar",
+       "blocks": [
+        "T16"
+       ],
+       "gate": "ga",
+       "deliverable": "Feedback summary"
+      },
+      {
+       "id": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T17"
+       ],
+       "gate": "ga",
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "id": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "id": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Runbook"
+      },
+      {
+       "id": "T19",
+       "name": "Analyst and press briefing",
+       "seat": "PMM",
+       "tiers": [
+        1
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Briefing deck and schedule"
+      },
+      {
+       "id": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Release notes draft"
+      },
+      {
+       "id": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "offset": -1,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Checklist"
+      }
+     ],
+     "dependencies": {
+      "slack": {
+       "unit": "calendar",
+       "min_gap_days": 0,
+       "definition": "Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived."
+      },
+      "propagation": "push-past-blocker"
+     },
+     "scoring": {
+      "precedence": [
+       {
+        "id": "overdue",
+        "risk": "red"
+       },
+       {
+        "id": "forecast-after-due",
+        "risk": "red"
+       },
+       {
+        "id": "breaks-rule",
+        "risk": "red"
+       },
+       {
+        "id": "blocked-slip-exceeds-slack",
+        "risk": "red"
+       },
+       {
+        "id": "no-due-date",
+        "risk": "amber"
+       },
+       {
+        "id": "due-soon-not-started",
+        "risk": "amber",
+        "days": 7
+       },
+       {
+        "id": "stale",
+        "risk": "amber",
+        "days": 14
+       },
+       {
+        "id": "blocked-within-slack",
+        "risk": "amber"
+       }
+      ]
+     },
+     "gates": [
+      {
+       "id": "beta",
+       "name": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "id": "ga",
+       "name": "GA readiness review",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20",
+        "T19"
+       ]
+      }
+     ],
+     "conditions": [],
+     "exceptions": [],
+     "unsupported": []
+    }
+   },
+   "stderr": "",
+   "set": 0
+  },
+  {
+   "name": "draft rules for a tier 2 launch",
+   "args": [
+    "draft-rules",
+    "--playbook",
+    "playbook/playbook.md",
+    "--launch",
+    "insights",
+    "--tier",
+    "2",
+    "--ea",
+    "2027-02-08",
+    "--ga",
+    "2027-03-22",
+    "--plan-approval",
+    "2026-11-09"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "draft-rules",
+    "saved": null,
+    "review": [
+     "US federal holidays for 2026, 2027, on their observed days. Add any other national or company holidays the intake names.",
+     "Confirm the slack definition and how slips propagate (dependencies) with the plan: the starter playbook describes slack without defining it.",
+     "The scoring predicates are the starter's Risk scoring rules. If the playbook's rules say something they do not express, list it under unsupported."
+    ],
+    "errors": [],
+    "warnings": [],
+    "unsupported": [],
+    "dues": {
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "tier": 2,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "tasks": [
+      {
+       "task": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "gate": null,
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "rule_due": "2026-11-17",
+       "due": "2026-11-17",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "task": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "rule_due": "2026-11-16",
+       "due": "2026-11-16",
+       "source": "rule",
+       "blocks": [
+        "T03"
+       ],
+       "blocked_by": [],
+       "deliverable": "Naming decision note"
+      },
+      {
+       "task": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "gate": "beta",
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "rule_due": "2026-12-14",
+       "due": "2026-12-14",
+       "source": "rule",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "blocked_by": [
+        "T02"
+       ],
+       "deliverable": "Messaging doc"
+      },
+      {
+       "task": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "blocked_by": [],
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "task": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Deck"
+      },
+      {
+       "task": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "task": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Pricing slide"
+      },
+      {
+       "task": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "task": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T13"
+       ],
+       "blocked_by": [
+        "T08"
+       ],
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "task": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "gate": "ga",
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "rule_due": "2027-02-01",
+       "due": "2027-02-01",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T05",
+        "T07",
+        "T11"
+       ],
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "task": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [],
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "task": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "task": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T08",
+        "T09"
+       ],
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "task": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "rule_due": "2027-02-12",
+       "moved_off": {
+        "from": "2027-02-15",
+        "because": "Washington's Birthday"
+       },
+       "due": "2027-02-12",
+       "source": "rule",
+       "blocks": [
+        "T16"
+       ],
+       "blocked_by": [],
+       "deliverable": "Feedback summary"
+      },
+      {
+       "task": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [
+        "T17"
+       ],
+       "blocked_by": [
+        "T15"
+       ],
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "task": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T16"
+       ],
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "task": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Runbook"
+      },
+      {
+       "task": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Release notes draft"
+      },
+      {
+       "task": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "moved_off": {
+        "from": "2027-03-14",
+        "because": "weekend"
+       },
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "rule_due": "2027-03-19",
+       "moved_off": {
+        "from": "2027-03-21",
+        "because": "weekend"
+       },
+       "due": "2027-03-19",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Checklist"
+      }
+     ],
+     "gates": [
+      {
+       "gate": "beta",
+       "name": "Beta (early access) readiness review",
+       "review": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "review_date": "2027-01-25",
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "gate": "ga",
+       "name": "GA readiness review",
+       "review": "GA readiness review",
+       "anchor": "GA",
+       "review_date": "2027-03-12",
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20"
+       ]
+      }
+     ]
+    },
+    "rules": {
+     "schema": "launch-rules/1",
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "based_on": null,
+     "tier": 2,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "calendar": {
+      "weekend": [
+       "Sat",
+       "Sun"
+      ],
+      "holidays": [
+       {
+        "date": "2026-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2026-01-19",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2026-02-16",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2026-05-25",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2026-06-19",
+        "name": "Juneteenth National Independence Day"
+       },
+       {
+        "date": "2026-07-03",
+        "name": "Independence Day (observed)",
+        "actual": "2026-07-04"
+       },
+       {
+        "date": "2026-09-07",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2026-10-12",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2026-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2026-11-26",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2026-12-25",
+        "name": "Christmas Day"
+       },
+       {
+        "date": "2027-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2027-01-18",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2027-02-15",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2027-05-31",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2027-06-18",
+        "name": "Juneteenth National Independence Day (observed)",
+        "actual": "2027-06-19"
+       },
+       {
+        "date": "2027-07-05",
+        "name": "Independence Day (observed)",
+        "actual": "2027-07-04"
+       },
+       {
+        "date": "2027-09-06",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2027-10-11",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2027-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2027-11-25",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2027-12-24",
+        "name": "Christmas Day (observed)",
+        "actual": "2027-12-25"
+       },
+       {
+        "date": "2027-12-31",
+        "name": "New Year's Day (observed)",
+        "actual": "2028-01-01"
+       }
+      ],
+      "holiday_observed": "as-listed",
+      "due_on_non_working_day": "previous-working-day"
+     },
+     "tasks": [
+      {
+       "id": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "offset": 5,
+       "unit": "working",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "id": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "offset": -84,
+       "unit": "calendar",
+       "blocks": [
+        "T03"
+       ],
+       "gate": null,
+       "deliverable": "Naming decision note"
+      },
+      {
+       "id": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "offset": -56,
+       "unit": "calendar",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "gate": "beta",
+       "deliverable": "Messaging doc"
+      },
+      {
+       "id": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "gate": "beta",
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "id": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Deck"
+      },
+      {
+       "id": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "id": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Pricing slide"
+      },
+      {
+       "id": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "id": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "id": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "offset": -7,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "id": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": "beta",
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "id": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "id": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "id": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "offset": -35,
+       "unit": "calendar",
+       "blocks": [
+        "T16"
+       ],
+       "gate": "ga",
+       "deliverable": "Feedback summary"
+      },
+      {
+       "id": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T17"
+       ],
+       "gate": "ga",
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "id": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "id": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Runbook"
+      },
+      {
+       "id": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Release notes draft"
+      },
+      {
+       "id": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "offset": -1,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Checklist"
+      }
+     ],
+     "dependencies": {
+      "slack": {
+       "unit": "calendar",
+       "min_gap_days": 0,
+       "definition": "Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived."
+      },
+      "propagation": "push-past-blocker"
+     },
+     "scoring": {
+      "precedence": [
+       {
+        "id": "overdue",
+        "risk": "red"
+       },
+       {
+        "id": "forecast-after-due",
+        "risk": "red"
+       },
+       {
+        "id": "breaks-rule",
+        "risk": "red"
+       },
+       {
+        "id": "blocked-slip-exceeds-slack",
+        "risk": "red"
+       },
+       {
+        "id": "no-due-date",
+        "risk": "amber"
+       },
+       {
+        "id": "due-soon-not-started",
+        "risk": "amber",
+        "days": 7
+       },
+       {
+        "id": "stale",
+        "risk": "amber",
+        "days": 14
+       },
+       {
+        "id": "blocked-within-slack",
+        "risk": "amber"
+       }
+      ]
+     },
+     "gates": [
+      {
+       "id": "beta",
+       "name": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "id": "ga",
+       "name": "GA readiness review",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20"
+       ]
+      }
+     ],
+     "conditions": [],
+     "exceptions": [],
+     "unsupported": []
+    }
+   },
+   "stderr": "",
+   "set": 0
+  },
+  {
+   "name": "draft rules for a tier 3 launch",
+   "args": [
+    "draft-rules",
+    "--playbook",
+    "playbook/playbook.md",
+    "--launch",
+    "insights",
+    "--tier",
+    "3",
+    "--ea",
+    "2027-02-08",
+    "--ga",
+    "2027-03-22",
+    "--plan-approval",
+    "2026-11-09"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "draft-rules",
+    "saved": null,
+    "review": [
+     "US federal holidays for 2026, 2027, on their observed days. Add any other national or company holidays the intake names.",
+     "Confirm the slack definition and how slips propagate (dependencies) with the plan: the starter playbook describes slack without defining it.",
+     "The scoring predicates are the starter's Risk scoring rules. If the playbook's rules say something they do not express, list it under unsupported."
+    ],
+    "errors": [],
+    "warnings": [],
+    "unsupported": [],
+    "dues": {
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "tier": 3,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "tasks": [
+      {
+       "task": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "gate": null,
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "rule_due": "2026-11-17",
+       "due": "2026-11-17",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "task": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "task": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "task": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Release notes draft"
+      },
+      {
+       "task": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "rule_due": "2027-03-19",
+       "moved_off": {
+        "from": "2027-03-21",
+        "because": "weekend"
+       },
+       "due": "2027-03-19",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Checklist"
+      }
+     ],
+     "gates": []
+    },
+    "rules": {
+     "schema": "launch-rules/1",
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "based_on": null,
+     "tier": 3,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "calendar": {
+      "weekend": [
+       "Sat",
+       "Sun"
+      ],
+      "holidays": [
+       {
+        "date": "2026-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2026-01-19",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2026-02-16",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2026-05-25",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2026-06-19",
+        "name": "Juneteenth National Independence Day"
+       },
+       {
+        "date": "2026-07-03",
+        "name": "Independence Day (observed)",
+        "actual": "2026-07-04"
+       },
+       {
+        "date": "2026-09-07",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2026-10-12",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2026-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2026-11-26",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2026-12-25",
+        "name": "Christmas Day"
+       },
+       {
+        "date": "2027-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2027-01-18",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2027-02-15",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2027-05-31",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2027-06-18",
+        "name": "Juneteenth National Independence Day (observed)",
+        "actual": "2027-06-19"
+       },
+       {
+        "date": "2027-07-05",
+        "name": "Independence Day (observed)",
+        "actual": "2027-07-04"
+       },
+       {
+        "date": "2027-09-06",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2027-10-11",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2027-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2027-11-25",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2027-12-24",
+        "name": "Christmas Day (observed)",
+        "actual": "2027-12-25"
+       },
+       {
+        "date": "2027-12-31",
+        "name": "New Year's Day (observed)",
+        "actual": "2028-01-01"
+       }
+      ],
+      "holiday_observed": "as-listed",
+      "due_on_non_working_day": "previous-working-day"
+     },
+     "tasks": [
+      {
+       "id": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "offset": 5,
+       "unit": "working",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "id": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "id": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "id": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Release notes draft"
+      },
+      {
+       "id": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "offset": -1,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Checklist"
+      }
+     ],
+     "dependencies": {
+      "slack": {
+       "unit": "calendar",
+       "min_gap_days": 0,
+       "definition": "Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived."
+      },
+      "propagation": "push-past-blocker"
+     },
+     "scoring": {
+      "precedence": [
+       {
+        "id": "overdue",
+        "risk": "red"
+       },
+       {
+        "id": "forecast-after-due",
+        "risk": "red"
+       },
+       {
+        "id": "breaks-rule",
+        "risk": "red"
+       },
+       {
+        "id": "blocked-slip-exceeds-slack",
+        "risk": "red"
+       },
+       {
+        "id": "no-due-date",
+        "risk": "amber"
+       },
+       {
+        "id": "due-soon-not-started",
+        "risk": "amber",
+        "days": 7
+       },
+       {
+        "id": "stale",
+        "risk": "amber",
+        "days": 14
+       },
+       {
+        "id": "blocked-within-slack",
+        "risk": "amber"
+       }
+      ]
+     },
+     "gates": [],
+     "conditions": [],
+     "exceptions": [],
+     "unsupported": []
+    }
+   },
+   "stderr": "",
+   "set": 0
+  },
+  {
+   "name": "refuse an early access date before plan approval",
+   "args": [
+    "draft-rules",
+    "--playbook",
+    "playbook/playbook.md",
+    "--launch",
+    "insights",
+    "--tier",
+    "2",
+    "--ea",
+    "2026-11-01",
+    "--ga",
+    "2027-03-22",
+    "--plan-approval",
+    "2026-11-09"
+   ],
+   "status": 1,
+   "stdout": {
+    "ok": false,
+    "command": "draft-rules",
+    "refused": "EA 2026-11-01 is before plan approval 2026-11-09: a launch date already past cannot be planned for. Ask the launch lead for the current dates"
+   },
+   "stderr": "Refused: EA 2026-11-01 is before plan approval 2026-11-09: a launch date already past cannot be planned for. Ask the launch lead for the current dates",
+   "set": 0
+  },
+  {
+   "name": "refuse a path outside the folder",
+   "args": [
+    "dues",
+    "--rules",
+    "../rules.json"
+   ],
+   "status": 2,
+   "stdout": null,
+   "stderr": "--rules \"../rules.json\" is not allowed here\n\nUsage: node scripts/launch-calc.mjs <command> [--flag value ...]\n\n  help            this text, and the option and items file formats\n  holidays        --set us-federal --years 2026,2027\n  draft-rules     --playbook <file.md> --launch <name> --tier <n> --ea <date> --ga <date> [--plan-approval <date>] [--as-of <date>] [--holidays us-federal|none] [--save launches/<launch>/rules-v1.json]\n                  Refuses an EA before --plan-approval or --as-of (the later of the two); warns \"the plan is born overdue\" for a Due before it.\n  validate-rules  --rules <rules.json>\n  dues            --rules <rules.json> [--anchor plan_approval=<date>]   (--anchor is a what-if; it saves nothing)\n  set-anchor      --rules launches/<launch>/rules-v<n>[-<A>].json --plan-approval <date>\n                  Records the day the launch lead approved this plan version, in its rules file, so tasks counted\n                  from plan approval (T01) get a Due that score and effects use. Run it once, when the launch lead\n                  approves the version. It fills only an empty plan_approval: it refuses a file that records a\n                  different date, and a file a later rules-v<m> has replaced. Every other value stays as approved.\n  score           --rules <rules.json> --rows <tracker.csv|rows.json> --as-of <date> [--last-score <date>]\n  slips           --rows <tracker.csv|rows.json> --launch <name> --as-of <date>   (refuses a launch with no tracker row)\n  effects         --rules <rules.json> --rows <tracker.csv|rows.json> --option <option.json> --as-of <date> [--save launches/<launch>/rules-v<n>[-<A>].json]\n  revisions       --dir launches/<launch>/weeks --launch <name> --week <monday> --revision <n> --items <items.json> --as-of <date> [--sent r1:1,2] [--skipped r1:3]\n  gates-between   --rules <rules.json> --from <current date> --to <target date> [--anchor EA=<date>]\n  responses       --history history/<launch|practice>-history.jsonl --launch <name> --as-of <date>   (no file yet: ok, with \"note\")\n\nDates are YYYY-MM-DD. Files are paths inside this folder under launches/, practice/, tracker/, or playbook/;\n--history is history/launch-history.jsonl or history/practice-history.jsonl, read only.\nRows are the tracker CSV, or a JSON file of the Tracker tab as read (header row first, or rows keyed by column).\nscore, slips, and effects refuse (exit 1) a tracker with no row for the launch, naming the Launch values it has;\nrows whose Launch differs only in case or spacing are used, with a warning. A row with a value that cannot be read\n(a date not YYYY-MM-DD, an unknown Status) is never scored: it is listed under unscored and in warnings.\nIn score, launch_dates[].realistic is true, false, or null: null when a task counted from that date, or a gate\nitem, has no readable tracker row (not_judged says which), so the date is neither confirmed nor denied.\n\nExit codes: 0 done; 1 refused (JSON with \"refused\" on stdout) or rules that do not validate; 2 bad arguments.",
+   "set": 0
+  },
+  {
+   "name": "refuse an unknown command",
+   "args": [
+    "guess"
+   ],
+   "status": 2,
+   "stdout": null,
+   "stderr": "unknown command \"guess\"\n\nUsage: node scripts/launch-calc.mjs <command> [--flag value ...]\n\n  help            this text, and the option and items file formats\n  holidays        --set us-federal --years 2026,2027\n  draft-rules     --playbook <file.md> --launch <name> --tier <n> --ea <date> --ga <date> [--plan-approval <date>] [--as-of <date>] [--holidays us-federal|none] [--save launches/<launch>/rules-v1.json]\n                  Refuses an EA before --plan-approval or --as-of (the later of the two); warns \"the plan is born overdue\" for a Due before it.\n  validate-rules  --rules <rules.json>\n  dues            --rules <rules.json> [--anchor plan_approval=<date>]   (--anchor is a what-if; it saves nothing)\n  set-anchor      --rules launches/<launch>/rules-v<n>[-<A>].json --plan-approval <date>\n                  Records the day the launch lead approved this plan version, in its rules file, so tasks counted\n                  from plan approval (T01) get a Due that score and effects use. Run it once, when the launch lead\n                  approves the version. It fills only an empty plan_approval: it refuses a file that records a\n                  different date, and a file a later rules-v<m> has replaced. Every other value stays as approved.\n  score           --rules <rules.json> --rows <tracker.csv|rows.json> --as-of <date> [--last-score <date>]\n  slips           --rows <tracker.csv|rows.json> --launch <name> --as-of <date>   (refuses a launch with no tracker row)\n  effects         --rules <rules.json> --rows <tracker.csv|rows.json> --option <option.json> --as-of <date> [--save launches/<launch>/rules-v<n>[-<A>].json]\n  revisions       --dir launches/<launch>/weeks --launch <name> --week <monday> --revision <n> --items <items.json> --as-of <date> [--sent r1:1,2] [--skipped r1:3]\n  gates-between   --rules <rules.json> --from <current date> --to <target date> [--anchor EA=<date>]\n  responses       --history history/<launch|practice>-history.jsonl --launch <name> --as-of <date>   (no file yet: ok, with \"note\")\n\nDates are YYYY-MM-DD. Files are paths inside this folder under launches/, practice/, tracker/, or playbook/;\n--history is history/launch-history.jsonl or history/practice-history.jsonl, read only.\nRows are the tracker CSV, or a JSON file of the Tracker tab as read (header row first, or rows keyed by column).\nscore, slips, and effects refuse (exit 1) a tracker with no row for the launch, naming the Launch values it has;\nrows whose Launch differs only in case or spacing are used, with a warning. A row with a value that cannot be read\n(a date not YYYY-MM-DD, an unknown Status) is never scored: it is listed under unscored and in warnings.\nIn score, launch_dates[].realistic is true, false, or null: null when a task counted from that date, or a gate\nitem, has no readable tracker row (not_judged says which), so the date is neither confirmed nor denied.\n\nExit codes: 0 done; 1 refused (JSON with \"refused\" on stdout) or rules that do not validate; 2 bad arguments.",
+   "set": 0
+  },
+  {
+   "name": "draft rules for the launch the later cases use",
+   "args": [
+    "draft-rules",
+    "--playbook",
+    "playbook/playbook.md",
+    "--launch",
+    "insights",
+    "--tier",
+    "2",
+    "--ea",
+    "2027-02-08",
+    "--ga",
+    "2027-03-22",
+    "--plan-approval",
+    "2026-11-09"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "draft-rules",
+    "saved": null,
+    "review": [
+     "US federal holidays for 2026, 2027, on their observed days. Add any other national or company holidays the intake names.",
+     "Confirm the slack definition and how slips propagate (dependencies) with the plan: the starter playbook describes slack without defining it.",
+     "The scoring predicates are the starter's Risk scoring rules. If the playbook's rules say something they do not express, list it under unsupported."
+    ],
+    "errors": [],
+    "warnings": [],
+    "unsupported": [],
+    "dues": {
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "tier": 2,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "tasks": [
+      {
+       "task": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "gate": null,
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "rule_due": "2026-11-17",
+       "due": "2026-11-17",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "task": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "rule_due": "2026-11-16",
+       "due": "2026-11-16",
+       "source": "rule",
+       "blocks": [
+        "T03"
+       ],
+       "blocked_by": [],
+       "deliverable": "Naming decision note"
+      },
+      {
+       "task": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "gate": "beta",
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "rule_due": "2026-12-14",
+       "due": "2026-12-14",
+       "source": "rule",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "blocked_by": [
+        "T02"
+       ],
+       "deliverable": "Messaging doc"
+      },
+      {
+       "task": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "blocked_by": [],
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "task": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Deck"
+      },
+      {
+       "task": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "task": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [
+        "T04"
+       ],
+       "deliverable": "Pricing slide"
+      },
+      {
+       "task": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "rule_due": "2027-01-11",
+       "due": "2027-01-11",
+       "source": "rule",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "task": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "gate": "beta",
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "rule_due": "2027-01-15",
+       "moved_off": {
+        "from": "2027-01-18",
+        "because": "Birthday of Martin Luther King, Jr."
+       },
+       "due": "2027-01-15",
+       "source": "rule",
+       "blocks": [
+        "T13"
+       ],
+       "blocked_by": [
+        "T08"
+       ],
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "task": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "gate": "ga",
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "rule_due": "2027-02-01",
+       "due": "2027-02-01",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T05",
+        "T07",
+        "T11"
+       ],
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "task": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [
+        "T10"
+       ],
+       "blocked_by": [],
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "task": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T03"
+       ],
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "task": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "gate": "beta",
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T08",
+        "T09"
+       ],
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "task": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "rule_due": "2027-01-25",
+       "due": "2027-01-25",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "gate": "ga",
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "rule_due": "2027-02-12",
+       "moved_off": {
+        "from": "2027-02-15",
+        "because": "Washington's Birthday"
+       },
+       "due": "2027-02-12",
+       "source": "rule",
+       "blocks": [
+        "T16"
+       ],
+       "blocked_by": [],
+       "deliverable": "Feedback summary"
+      },
+      {
+       "task": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [
+        "T17"
+       ],
+       "blocked_by": [
+        "T15"
+       ],
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "task": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [
+        "T16"
+       ],
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "task": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "gate": "ga",
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "rule_due": "2027-03-08",
+       "due": "2027-03-08",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Runbook"
+      },
+      {
+       "task": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "gate": "ga",
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Release notes draft"
+      },
+      {
+       "task": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "rule_due": "2027-03-12",
+       "moved_off": {
+        "from": "2027-03-14",
+        "because": "weekend"
+       },
+       "due": "2027-03-12",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Gate packet"
+      },
+      {
+       "task": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "gate": null,
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "rule_due": "2027-03-19",
+       "moved_off": {
+        "from": "2027-03-21",
+        "because": "weekend"
+       },
+       "due": "2027-03-19",
+       "source": "rule",
+       "blocks": [],
+       "blocked_by": [],
+       "deliverable": "Checklist"
+      }
+     ],
+     "gates": [
+      {
+       "gate": "beta",
+       "name": "Beta (early access) readiness review",
+       "review": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "review_date": "2027-01-25",
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "gate": "ga",
+       "name": "GA readiness review",
+       "review": "GA readiness review",
+       "anchor": "GA",
+       "review_date": "2027-03-12",
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20"
+       ]
+      }
+     ]
+    },
+    "rules": {
+     "schema": "launch-rules/1",
+     "launch": "insights",
+     "plan_version": "v1",
+     "option": null,
+     "based_on": null,
+     "tier": 2,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-03-22",
+      "plan_approval": "2026-11-09"
+     },
+     "calendar": {
+      "weekend": [
+       "Sat",
+       "Sun"
+      ],
+      "holidays": [
+       {
+        "date": "2026-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2026-01-19",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2026-02-16",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2026-05-25",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2026-06-19",
+        "name": "Juneteenth National Independence Day"
+       },
+       {
+        "date": "2026-07-03",
+        "name": "Independence Day (observed)",
+        "actual": "2026-07-04"
+       },
+       {
+        "date": "2026-09-07",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2026-10-12",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2026-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2026-11-26",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2026-12-25",
+        "name": "Christmas Day"
+       },
+       {
+        "date": "2027-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2027-01-18",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2027-02-15",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2027-05-31",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2027-06-18",
+        "name": "Juneteenth National Independence Day (observed)",
+        "actual": "2027-06-19"
+       },
+       {
+        "date": "2027-07-05",
+        "name": "Independence Day (observed)",
+        "actual": "2027-07-04"
+       },
+       {
+        "date": "2027-09-06",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2027-10-11",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2027-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2027-11-25",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2027-12-24",
+        "name": "Christmas Day (observed)",
+        "actual": "2027-12-25"
+       },
+       {
+        "date": "2027-12-31",
+        "name": "New Year's Day (observed)",
+        "actual": "2028-01-01"
+       }
+      ],
+      "holiday_observed": "as-listed",
+      "due_on_non_working_day": "previous-working-day"
+     },
+     "tasks": [
+      {
+       "id": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "offset": 5,
+       "unit": "working",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "id": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "offset": -84,
+       "unit": "calendar",
+       "blocks": [
+        "T03"
+       ],
+       "gate": null,
+       "deliverable": "Naming decision note"
+      },
+      {
+       "id": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "offset": -56,
+       "unit": "calendar",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "gate": "beta",
+       "deliverable": "Messaging doc"
+      },
+      {
+       "id": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "gate": "beta",
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "id": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Deck"
+      },
+      {
+       "id": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "id": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Pricing slide"
+      },
+      {
+       "id": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "id": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "id": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "offset": -7,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "id": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": "beta",
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "id": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "id": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "id": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "offset": -35,
+       "unit": "calendar",
+       "blocks": [
+        "T16"
+       ],
+       "gate": "ga",
+       "deliverable": "Feedback summary"
+      },
+      {
+       "id": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T17"
+       ],
+       "gate": "ga",
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "id": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "id": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Runbook"
+      },
+      {
+       "id": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Release notes draft"
+      },
+      {
+       "id": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "offset": -1,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Checklist"
+      }
+     ],
+     "dependencies": {
+      "slack": {
+       "unit": "calendar",
+       "min_gap_days": 0,
+       "definition": "Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived."
+      },
+      "propagation": "push-past-blocker"
+     },
+     "scoring": {
+      "precedence": [
+       {
+        "id": "overdue",
+        "risk": "red"
+       },
+       {
+        "id": "forecast-after-due",
+        "risk": "red"
+       },
+       {
+        "id": "breaks-rule",
+        "risk": "red"
+       },
+       {
+        "id": "blocked-slip-exceeds-slack",
+        "risk": "red"
+       },
+       {
+        "id": "no-due-date",
+        "risk": "amber"
+       },
+       {
+        "id": "due-soon-not-started",
+        "risk": "amber",
+        "days": 7
+       },
+       {
+        "id": "stale",
+        "risk": "amber",
+        "days": 14
+       },
+       {
+        "id": "blocked-within-slack",
+        "risk": "amber"
+       }
+      ]
+     },
+     "gates": [
+      {
+       "id": "beta",
+       "name": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "id": "ga",
+       "name": "GA readiness review",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20"
+       ]
+      }
+     ],
+     "conditions": [],
+     "exceptions": [],
+     "unsupported": []
+    }
+   },
+   "stderr": "",
+   "set": 0
+  },
+  {
+   "name": "validate the rules",
+   "args": [
+    "validate-rules",
+    "--rules",
+    "launches/insights/rules-v1.json"
+   ],
+   "status": 0,
+   "stdout": {
+    "command": "validate-rules",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "unsupported": []
+   },
+   "stderr": "",
+   "set": 1
+  },
+  {
+   "name": "count every due date back from the launch dates",
+   "args": [
+    "dues",
+    "--rules",
+    "launches/insights/rules-v1.json"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "dues",
+    "launch": "insights",
+    "plan_version": "v1",
+    "option": null,
+    "tier": 2,
+    "anchors": {
+     "EA": "2027-02-08",
+     "GA": "2027-03-22",
+     "plan_approval": "2026-11-09"
+    },
+    "tasks": [
+     {
+      "task": "T01",
+      "name": "Success metric, baseline, and target agreed",
+      "seat": "PM",
+      "gate": null,
+      "lead_time": "Plan approval + 5 working days",
+      "anchor": "plan_approval",
+      "rule_due": "2026-11-17",
+      "due": "2026-11-17",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Metric note in the launch folder"
+     },
+     {
+      "task": "T02",
+      "name": "Naming and trademark check",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 12w",
+      "anchor": "EA",
+      "rule_due": "2026-11-16",
+      "due": "2026-11-16",
+      "source": "rule",
+      "blocks": [
+       "T03"
+      ],
+      "blocked_by": [],
+      "deliverable": "Naming decision note"
+     },
+     {
+      "task": "T03",
+      "name": "Positioning and messaging doc",
+      "seat": "PMM",
+      "gate": "beta",
+      "lead_time": "EA - 8w",
+      "anchor": "EA",
+      "rule_due": "2026-12-14",
+      "due": "2026-12-14",
+      "source": "rule",
+      "blocks": [
+       "T05",
+       "T08",
+       "T12"
+      ],
+      "blocked_by": [
+       "T02"
+      ],
+      "deliverable": "Messaging doc"
+     },
+     {
+      "task": "T04",
+      "name": "Pricing and packaging approved",
+      "seat": "Pricing and packaging",
+      "gate": "beta",
+      "lead_time": "EA - 4w",
+      "anchor": "EA",
+      "rule_due": "2027-01-11",
+      "due": "2027-01-11",
+      "source": "rule",
+      "blocks": [
+       "T06",
+       "T07"
+      ],
+      "blocked_by": [],
+      "deliverable": "Pricing approval record"
+     },
+     {
+      "task": "T05",
+      "name": "Customer-facing launch deck",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 3w",
+      "anchor": "EA",
+      "rule_due": "2027-01-15",
+      "moved_off": {
+       "from": "2027-01-18",
+       "because": "Birthday of Martin Luther King, Jr."
+      },
+      "due": "2027-01-15",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Deck"
+     },
+     {
+      "task": "T06",
+      "name": "Billing and quoting set up for the new SKU",
+      "seat": "PM",
+      "gate": "ga",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T04"
+      ],
+      "deliverable": "Billing setup confirmation"
+     },
+     {
+      "task": "T07",
+      "name": "Sales pricing slide and discount guidance",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [
+       "T04"
+      ],
+      "deliverable": "Pricing slide"
+     },
+     {
+      "task": "T08",
+      "name": "Legal review of claims, terms, and NDA for early access",
+      "seat": "Legal",
+      "gate": "beta",
+      "lead_time": "EA - 4w",
+      "anchor": "EA",
+      "rule_due": "2027-01-11",
+      "due": "2027-01-11",
+      "source": "rule",
+      "blocks": [
+       "T09",
+       "T13"
+      ],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Legal sign-off"
+     },
+     {
+      "task": "T09",
+      "name": "Early-access terms or NDA in place",
+      "seat": "Legal",
+      "gate": "beta",
+      "lead_time": "EA - 3w",
+      "anchor": "EA",
+      "rule_due": "2027-01-15",
+      "moved_off": {
+       "from": "2027-01-18",
+       "because": "Birthday of Martin Luther King, Jr."
+      },
+      "due": "2027-01-15",
+      "source": "rule",
+      "blocks": [
+       "T13"
+      ],
+      "blocked_by": [
+       "T08"
+      ],
+      "deliverable": "Signed terms or NDA template"
+     },
+     {
+      "task": "T10",
+      "name": "Sales and customer success enablement session",
+      "seat": "Enablement",
+      "gate": "ga",
+      "lead_time": "EA - 1w",
+      "anchor": "EA",
+      "rule_due": "2027-02-01",
+      "due": "2027-02-01",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T05",
+       "T07",
+       "T11"
+      ],
+      "deliverable": "Session recording and one-pager"
+     },
+     {
+      "task": "T11",
+      "name": "Demo environment and demo script",
+      "seat": "Sales engineering",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [],
+      "deliverable": "Demo environment link and script"
+     },
+     {
+      "task": "T12",
+      "name": "Help center articles",
+      "seat": "Customer success",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Published or staged articles"
+     },
+     {
+      "task": "T13",
+      "name": "Early-access customer list, invites, and feedback plan",
+      "seat": "Customer success",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T08",
+       "T09"
+      ],
+      "deliverable": "Customer list and feedback plan"
+     },
+     {
+      "task": "T14",
+      "name": "Beta readiness review packet",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Gate packet"
+     },
+     {
+      "task": "T15",
+      "name": "Beta feedback summary and go-forward decisions",
+      "seat": "PM",
+      "gate": "ga",
+      "lead_time": "GA - 5w",
+      "anchor": "GA",
+      "rule_due": "2027-02-12",
+      "moved_off": {
+       "from": "2027-02-15",
+       "because": "Washington's Birthday"
+      },
+      "due": "2027-02-12",
+      "source": "rule",
+      "blocks": [
+       "T16"
+      ],
+      "blocked_by": [],
+      "deliverable": "Feedback summary"
+     },
+     {
+      "task": "T16",
+      "name": "Website and in-app copy",
+      "seat": "PMM",
+      "gate": "ga",
+      "lead_time": "GA - 2w",
+      "anchor": "GA",
+      "rule_due": "2027-03-08",
+      "due": "2027-03-08",
+      "source": "rule",
+      "blocks": [
+       "T17"
+      ],
+      "blocked_by": [
+       "T15"
+      ],
+      "deliverable": "Copy, reviewed"
+     },
+     {
+      "task": "T17",
+      "name": "Legal copy review for GA",
+      "seat": "Legal",
+      "gate": "ga",
+      "lead_time": "GA - 10d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T16"
+      ],
+      "deliverable": "Legal sign-off on copy"
+     },
+     {
+      "task": "T18",
+      "name": "Support runbook and escalation path",
+      "seat": "Customer success",
+      "gate": "ga",
+      "lead_time": "GA - 2w",
+      "anchor": "GA",
+      "rule_due": "2027-03-08",
+      "due": "2027-03-08",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Runbook"
+     },
+     {
+      "task": "T20",
+      "name": "Release notes and customer announcement",
+      "seat": "PMM",
+      "gate": "ga",
+      "lead_time": "GA - 10d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Release notes draft"
+     },
+     {
+      "task": "T21",
+      "name": "GA readiness review packet",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "GA - 8d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "moved_off": {
+       "from": "2027-03-14",
+       "because": "weekend"
+      },
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Gate packet"
+     },
+     {
+      "task": "T22",
+      "name": "GA launch checklist complete",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "GA - 1d",
+      "anchor": "GA",
+      "rule_due": "2027-03-19",
+      "moved_off": {
+       "from": "2027-03-21",
+       "because": "weekend"
+      },
+      "due": "2027-03-19",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Checklist"
+     }
+    ],
+    "gates": [
+     {
+      "gate": "beta",
+      "name": "Beta (early access) readiness review",
+      "review": "Beta (early access) readiness review",
+      "anchor": "EA",
+      "review_date": "2027-01-25",
+      "checklist": [
+       "T03",
+       "T04",
+       "T08",
+       "T09",
+       "T11",
+       "T13",
+       "T12"
+      ]
+     },
+     {
+      "gate": "ga",
+      "name": "GA readiness review",
+      "review": "GA readiness review",
+      "anchor": "GA",
+      "review_date": "2027-03-12",
+      "checklist": [
+       "T15",
+       "T16",
+       "T17",
+       "T06",
+       "T10",
+       "T18",
+       "T20"
+      ]
+     }
+    ]
+   },
+   "stderr": "",
+   "set": 1
+  },
+  {
+   "name": "a what-if plan approval date",
+   "args": [
+    "dues",
+    "--rules",
+    "launches/insights/rules-v1.json",
+    "--anchor",
+    "plan_approval=2026-11-16"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "dues",
+    "launch": "insights",
+    "plan_version": "v1",
+    "option": null,
+    "tier": 2,
+    "anchors": {
+     "EA": "2027-02-08",
+     "GA": "2027-03-22",
+     "plan_approval": "2026-11-16"
+    },
+    "tasks": [
+     {
+      "task": "T01",
+      "name": "Success metric, baseline, and target agreed",
+      "seat": "PM",
+      "gate": null,
+      "lead_time": "Plan approval + 5 working days",
+      "anchor": "plan_approval",
+      "rule_due": "2026-11-23",
+      "due": "2026-11-23",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Metric note in the launch folder"
+     },
+     {
+      "task": "T02",
+      "name": "Naming and trademark check",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 12w",
+      "anchor": "EA",
+      "rule_due": "2026-11-16",
+      "due": "2026-11-16",
+      "source": "rule",
+      "blocks": [
+       "T03"
+      ],
+      "blocked_by": [],
+      "deliverable": "Naming decision note"
+     },
+     {
+      "task": "T03",
+      "name": "Positioning and messaging doc",
+      "seat": "PMM",
+      "gate": "beta",
+      "lead_time": "EA - 8w",
+      "anchor": "EA",
+      "rule_due": "2026-12-14",
+      "due": "2026-12-14",
+      "source": "rule",
+      "blocks": [
+       "T05",
+       "T08",
+       "T12"
+      ],
+      "blocked_by": [
+       "T02"
+      ],
+      "deliverable": "Messaging doc"
+     },
+     {
+      "task": "T04",
+      "name": "Pricing and packaging approved",
+      "seat": "Pricing and packaging",
+      "gate": "beta",
+      "lead_time": "EA - 4w",
+      "anchor": "EA",
+      "rule_due": "2027-01-11",
+      "due": "2027-01-11",
+      "source": "rule",
+      "blocks": [
+       "T06",
+       "T07"
+      ],
+      "blocked_by": [],
+      "deliverable": "Pricing approval record"
+     },
+     {
+      "task": "T05",
+      "name": "Customer-facing launch deck",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 3w",
+      "anchor": "EA",
+      "rule_due": "2027-01-15",
+      "moved_off": {
+       "from": "2027-01-18",
+       "because": "Birthday of Martin Luther King, Jr."
+      },
+      "due": "2027-01-15",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Deck"
+     },
+     {
+      "task": "T06",
+      "name": "Billing and quoting set up for the new SKU",
+      "seat": "PM",
+      "gate": "ga",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T04"
+      ],
+      "deliverable": "Billing setup confirmation"
+     },
+     {
+      "task": "T07",
+      "name": "Sales pricing slide and discount guidance",
+      "seat": "PMM",
+      "gate": null,
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [
+       "T04"
+      ],
+      "deliverable": "Pricing slide"
+     },
+     {
+      "task": "T08",
+      "name": "Legal review of claims, terms, and NDA for early access",
+      "seat": "Legal",
+      "gate": "beta",
+      "lead_time": "EA - 4w",
+      "anchor": "EA",
+      "rule_due": "2027-01-11",
+      "due": "2027-01-11",
+      "source": "rule",
+      "blocks": [
+       "T09",
+       "T13"
+      ],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Legal sign-off"
+     },
+     {
+      "task": "T09",
+      "name": "Early-access terms or NDA in place",
+      "seat": "Legal",
+      "gate": "beta",
+      "lead_time": "EA - 3w",
+      "anchor": "EA",
+      "rule_due": "2027-01-15",
+      "moved_off": {
+       "from": "2027-01-18",
+       "because": "Birthday of Martin Luther King, Jr."
+      },
+      "due": "2027-01-15",
+      "source": "rule",
+      "blocks": [
+       "T13"
+      ],
+      "blocked_by": [
+       "T08"
+      ],
+      "deliverable": "Signed terms or NDA template"
+     },
+     {
+      "task": "T10",
+      "name": "Sales and customer success enablement session",
+      "seat": "Enablement",
+      "gate": "ga",
+      "lead_time": "EA - 1w",
+      "anchor": "EA",
+      "rule_due": "2027-02-01",
+      "due": "2027-02-01",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T05",
+       "T07",
+       "T11"
+      ],
+      "deliverable": "Session recording and one-pager"
+     },
+     {
+      "task": "T11",
+      "name": "Demo environment and demo script",
+      "seat": "Sales engineering",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [
+       "T10"
+      ],
+      "blocked_by": [],
+      "deliverable": "Demo environment link and script"
+     },
+     {
+      "task": "T12",
+      "name": "Help center articles",
+      "seat": "Customer success",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T03"
+      ],
+      "deliverable": "Published or staged articles"
+     },
+     {
+      "task": "T13",
+      "name": "Early-access customer list, invites, and feedback plan",
+      "seat": "Customer success",
+      "gate": "beta",
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T08",
+       "T09"
+      ],
+      "deliverable": "Customer list and feedback plan"
+     },
+     {
+      "task": "T14",
+      "name": "Beta readiness review packet",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "EA - 2w",
+      "anchor": "EA",
+      "rule_due": "2027-01-25",
+      "due": "2027-01-25",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Gate packet"
+     },
+     {
+      "task": "T15",
+      "name": "Beta feedback summary and go-forward decisions",
+      "seat": "PM",
+      "gate": "ga",
+      "lead_time": "GA - 5w",
+      "anchor": "GA",
+      "rule_due": "2027-02-12",
+      "moved_off": {
+       "from": "2027-02-15",
+       "because": "Washington's Birthday"
+      },
+      "due": "2027-02-12",
+      "source": "rule",
+      "blocks": [
+       "T16"
+      ],
+      "blocked_by": [],
+      "deliverable": "Feedback summary"
+     },
+     {
+      "task": "T16",
+      "name": "Website and in-app copy",
+      "seat": "PMM",
+      "gate": "ga",
+      "lead_time": "GA - 2w",
+      "anchor": "GA",
+      "rule_due": "2027-03-08",
+      "due": "2027-03-08",
+      "source": "rule",
+      "blocks": [
+       "T17"
+      ],
+      "blocked_by": [
+       "T15"
+      ],
+      "deliverable": "Copy, reviewed"
+     },
+     {
+      "task": "T17",
+      "name": "Legal copy review for GA",
+      "seat": "Legal",
+      "gate": "ga",
+      "lead_time": "GA - 10d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [
+       "T16"
+      ],
+      "deliverable": "Legal sign-off on copy"
+     },
+     {
+      "task": "T18",
+      "name": "Support runbook and escalation path",
+      "seat": "Customer success",
+      "gate": "ga",
+      "lead_time": "GA - 2w",
+      "anchor": "GA",
+      "rule_due": "2027-03-08",
+      "due": "2027-03-08",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Runbook"
+     },
+     {
+      "task": "T20",
+      "name": "Release notes and customer announcement",
+      "seat": "PMM",
+      "gate": "ga",
+      "lead_time": "GA - 10d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Release notes draft"
+     },
+     {
+      "task": "T21",
+      "name": "GA readiness review packet",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "GA - 8d",
+      "anchor": "GA",
+      "rule_due": "2027-03-12",
+      "moved_off": {
+       "from": "2027-03-14",
+       "because": "weekend"
+      },
+      "due": "2027-03-12",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Gate packet"
+     },
+     {
+      "task": "T22",
+      "name": "GA launch checklist complete",
+      "seat": "Launch lead",
+      "gate": null,
+      "lead_time": "GA - 1d",
+      "anchor": "GA",
+      "rule_due": "2027-03-19",
+      "moved_off": {
+       "from": "2027-03-21",
+       "because": "weekend"
+      },
+      "due": "2027-03-19",
+      "source": "rule",
+      "blocks": [],
+      "blocked_by": [],
+      "deliverable": "Checklist"
+     }
+    ],
+    "gates": [
+     {
+      "gate": "beta",
+      "name": "Beta (early access) readiness review",
+      "review": "Beta (early access) readiness review",
+      "anchor": "EA",
+      "review_date": "2027-01-25",
+      "checklist": [
+       "T03",
+       "T04",
+       "T08",
+       "T09",
+       "T11",
+       "T13",
+       "T12"
+      ]
+     },
+     {
+      "gate": "ga",
+      "name": "GA readiness review",
+      "review": "GA readiness review",
+      "anchor": "GA",
+      "review_date": "2027-03-12",
+      "checklist": [
+       "T15",
+       "T16",
+       "T17",
+       "T06",
+       "T10",
+       "T18",
+       "T20"
+      ]
+     }
+    ]
+   },
+   "stderr": "",
+   "set": 1
+  },
+  {
+   "name": "score the week",
+   "args": [
+    "score",
+    "--rules",
+    "launches/insights/rules-v1.json",
+    "--rows",
+    "tracker/launch-tracker.csv",
+    "--as-of",
+    "2027-01-04",
+    "--last-score",
+    "2026-12-28"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "score",
+    "launch": "insights",
+    "plan_version": "v1",
+    "option": null,
+    "as_of": "2027-01-04",
+    "precedence": [
+     "overdue",
+     "forecast-after-due",
+     "breaks-rule",
+     "blocked-slip-exceeds-slack",
+     "no-due-date",
+     "due-soon-not-started",
+     "stale",
+     "blocked-within-slack"
+    ],
+    "counts": {
+     "red": 3,
+     "amber": 5,
+     "green": 12
+    },
+    "rows": [
+     {
+      "task": "T02",
+      "name": "Naming and trademark check",
+      "owner": "Pat",
+      "status": "Not started",
+      "due": "2026-11-16",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 49,
+      "forecast_after_due_days": 0,
+      "days_to_due": -49,
+      "days_since_update": 7,
+      "slip_days": 49,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "overdue",
+        "risk": "red",
+        "detail": "49 days past Due 2026-11-16"
+       }
+      ],
+      "risk": "red",
+      "reason": "49 days past Due 2026-11-16"
+     },
+     {
+      "task": "T03",
+      "name": "Positioning and messaging doc",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2026-12-14",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T02"
+      ],
+      "late_days": 21,
+      "forecast_after_due_days": 0,
+      "days_to_due": -21,
+      "days_since_update": 7,
+      "slip_days": 21,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "overdue",
+        "risk": "red",
+        "detail": "21 days past Due 2026-12-14"
+       },
+       {
+        "predicate": "blocked-slip-exceeds-slack",
+        "risk": "red",
+        "detail": "blocked by red T02, whose slip of 49 days is larger than the 28 days of slack"
+       }
+      ],
+      "risk": "red",
+      "reason": "21 days past Due 2026-12-14"
+     },
+     {
+      "task": "T04",
+      "name": "Pricing and packaging approved",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-11",
+      "forecast": "2027-01-20",
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 9,
+      "days_to_due": 7,
+      "days_since_update": 7,
+      "slip_days": 9,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "forecast-after-due",
+        "risk": "red",
+        "detail": "Forecast 2027-01-20 is 9 days after Due 2027-01-11"
+       }
+      ],
+      "risk": "red",
+      "reason": "Forecast 2027-01-20 is 9 days after Due 2027-01-11"
+     },
+     {
+      "task": "T05",
+      "name": "Customer-facing launch deck",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-15",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T03"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 11,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "blocked-within-slack",
+        "risk": "amber",
+        "detail": "blocked by red T03; its slip of 21 days fits in the 32 days of slack"
+       }
+      ],
+      "risk": "amber",
+      "reason": "blocked by red T03; its slip of 21 days fits in the 32 days of slack"
+     },
+     {
+      "task": "T06",
+      "name": "Billing and quoting set up for the new SKU",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-01",
+      "blocked_by": [
+       "T04"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 34,
+      "slip_days": 0,
+      "notes": [],
+      "not_updated_since_last_score": true,
+      "reasons": [
+       {
+        "predicate": "stale",
+        "risk": "amber",
+        "detail": "no update for 34 days (Last update 2026-12-01)"
+       },
+       {
+        "predicate": "blocked-within-slack",
+        "risk": "amber",
+        "detail": "blocked by red T04; its slip of 9 days fits in the 14 days of slack"
+       }
+      ],
+      "risk": "amber",
+      "reason": "no update for 34 days (Last update 2026-12-01)"
+     },
+     {
+      "task": "T07",
+      "name": "Sales pricing slide and discount guidance",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T04"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "blocked-within-slack",
+        "risk": "amber",
+        "detail": "blocked by red T04; its slip of 9 days fits in the 14 days of slack"
+       }
+      ],
+      "risk": "amber",
+      "reason": "blocked by red T04; its slip of 9 days fits in the 14 days of slack"
+     },
+     {
+      "task": "T08",
+      "name": "Legal review of claims, terms, and NDA for early access",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-11",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T03"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 7,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "blocked-within-slack",
+        "risk": "amber",
+        "detail": "blocked by red T03; its slip of 21 days fits in the 28 days of slack"
+       }
+      ],
+      "risk": "amber",
+      "reason": "blocked by red T03; its slip of 21 days fits in the 28 days of slack"
+     },
+     {
+      "task": "T12",
+      "name": "Help center articles",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T03"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [
+       {
+        "predicate": "blocked-within-slack",
+        "risk": "amber",
+        "detail": "blocked by red T03; its slip of 21 days fits in the 42 days of slack"
+       }
+      ],
+      "risk": "amber",
+      "reason": "blocked by red T03; its slip of 21 days fits in the 42 days of slack"
+     },
+     {
+      "task": "T09",
+      "name": "Early-access terms or NDA in place",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-15",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T08"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 11,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T10",
+      "name": "Sales and customer success enablement session",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-02-01",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T05",
+       "T07",
+       "T11"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 28,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T11",
+      "name": "Demo environment and demo script",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T13",
+      "name": "Early-access customer list, invites, and feedback plan",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T08",
+       "T09"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T14",
+      "name": "Beta readiness review packet",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-01-25",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 21,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T15",
+      "name": "Beta feedback summary and go-forward decisions",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-02-12",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 39,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T16",
+      "name": "Website and in-app copy",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-08",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T15"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 63,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T17",
+      "name": "Legal copy review for GA",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-12",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [
+       "T16"
+      ],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 67,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T18",
+      "name": "Support runbook and escalation path",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-08",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 63,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T20",
+      "name": "Release notes and customer announcement",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-12",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 67,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T21",
+      "name": "GA readiness review packet",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-12",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 67,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     },
+     {
+      "task": "T22",
+      "name": "GA launch checklist complete",
+      "owner": "Pat",
+      "status": "In progress",
+      "due": "2027-03-19",
+      "forecast": null,
+      "last_update": "2026-12-28",
+      "blocked_by": [],
+      "late_days": 0,
+      "forecast_after_due_days": 0,
+      "days_to_due": 74,
+      "days_since_update": 7,
+      "slip_days": 0,
+      "notes": [],
+      "reasons": [],
+      "risk": "green",
+      "reason": "nothing in the scoring rules applies"
+     }
+    ],
+    "pairs": [],
+    "closed": [
+     {
+      "task": "T01",
+      "status": "Done"
+     }
+    ],
+    "unscored": [],
+    "not_updated_since_last_score": [
+     "T06"
+    ],
+    "launch_dates": [
+     {
+      "anchor": "EA",
+      "date": "2027-02-08",
+      "realistic": true,
+      "because": [],
+      "not_judged": []
+     },
+     {
+      "anchor": "GA",
+      "date": "2027-03-22",
+      "realistic": true,
+      "because": [],
+      "not_judged": []
+     }
+    ],
+    "gates": [
+     {
+      "gate": "beta",
+      "name": "Beta (early access) readiness review",
+      "review": "Beta (early access) readiness review",
+      "anchor": "EA",
+      "review_date": "2027-01-25",
+      "checklist": [
+       "T03",
+       "T04",
+       "T08",
+       "T09",
+       "T11",
+       "T13",
+       "T12"
+      ]
+     },
+     {
+      "gate": "ga",
+      "name": "GA readiness review",
+      "review": "GA readiness review",
+      "anchor": "GA",
+      "review_date": "2027-03-12",
+      "checklist": [
+       "T15",
+       "T16",
+       "T17",
+       "T06",
+       "T10",
+       "T18",
+       "T20"
+      ]
+     }
+    ],
+    "warnings": [],
+    "unsupported": []
+   },
+   "stderr": "",
+   "set": 2
+  },
+  {
+   "name": "list the slips",
+   "args": [
+    "slips",
+    "--rows",
+    "tracker/launch-tracker.csv",
+    "--launch",
+    "insights",
+    "--as-of",
+    "2027-01-04"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "slips",
+    "launch": "insights",
+    "as_of": "2027-01-04",
+    "slips": [
+     {
+      "task": "T02",
+      "name": "Naming and trademark check",
+      "original_due": "2026-11-16",
+      "due": "2026-11-16",
+      "finish": "2027-01-04",
+      "measured_from": "still open on the as-of date",
+      "days": 49,
+      "replanned": false,
+      "conditions": []
+     },
+     {
+      "task": "T03",
+      "name": "Positioning and messaging doc",
+      "original_due": "2026-12-14",
+      "due": "2026-12-14",
+      "finish": "2027-01-04",
+      "measured_from": "still open on the as-of date",
+      "days": 21,
+      "replanned": false,
+      "conditions": []
+     },
+     {
+      "task": "T04",
+      "name": "Pricing and packaging approved",
+      "original_due": "2027-01-11",
+      "due": "2027-01-11",
+      "finish": "2027-01-20",
+      "measured_from": "Forecast",
+      "days": 9,
+      "replanned": false,
+      "conditions": []
+     },
+     {
+      "task": "T01",
+      "name": "Success metric, baseline, and target agreed",
+      "original_due": "2026-11-17",
+      "due": "2026-11-17",
+      "finish": "2026-11-20",
+      "measured_from": "Done date",
+      "days": 3,
+      "replanned": false,
+      "conditions": []
+     }
+    ],
+    "total_tasks_slipped": 4,
+    "conditions_not_counted": [],
+    "unmeasured": [],
+    "warnings": []
+   },
+   "stderr": "",
+   "set": 2
+  },
+  {
+   "name": "refuse a launch with no tracker row",
+   "args": [
+    "slips",
+    "--rows",
+    "tracker/launch-tracker.csv",
+    "--launch",
+    "orbit",
+    "--as-of",
+    "2027-01-04"
+   ],
+   "status": 1,
+   "stdout": {
+    "ok": false,
+    "command": "slips",
+    "refused": "the tracker has no row whose Launch is \"orbit\"; the Launch values it has are: \"insights\". Nothing was scored; check the launch name or the tracker read"
+   },
+   "stderr": "Refused: the tracker has no row whose Launch is \"orbit\"; the Launch values it has are: \"insights\". Nothing was scored; check the launch name or the tracker read",
+   "set": 2
+  },
+  {
+   "name": "an option's effects",
+   "args": [
+    "effects",
+    "--rules",
+    "launches/insights/rules-v1.json",
+    "--rows",
+    "tracker/launch-tracker.csv",
+    "--option",
+    "launches/insights/weeks/2027-01-04-option-A.json",
+    "--as-of",
+    "2027-01-04"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "effects",
+    "launch": "insights",
+    "as_of": "2027-01-04",
+    "based_on": "v1",
+    "proposes": "plan-v2 option A",
+    "no_dates_move": false,
+    "anchor_changes": [
+     {
+      "anchor": "GA",
+      "old": "2027-03-22",
+      "new": "2027-04-05"
+     }
+    ],
+    "row_changes": [
+     {
+      "launch": "insights",
+      "task": "T15",
+      "column": "Due",
+      "old": "2027-02-12",
+      "new": "2027-03-01",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 5w)"
+     },
+     {
+      "launch": "insights",
+      "task": "T16",
+      "column": "Due",
+      "old": "2027-03-08",
+      "new": "2027-03-22",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 2w)"
+     },
+     {
+      "launch": "insights",
+      "task": "T17",
+      "column": "Due",
+      "old": "2027-03-12",
+      "new": "2027-03-26",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 10d)"
+     },
+     {
+      "launch": "insights",
+      "task": "T18",
+      "column": "Due",
+      "old": "2027-03-08",
+      "new": "2027-03-22",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 2w)"
+     },
+     {
+      "launch": "insights",
+      "task": "T20",
+      "column": "Due",
+      "old": "2027-03-12",
+      "new": "2027-03-26",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 10d)"
+     },
+     {
+      "launch": "insights",
+      "task": "T21",
+      "column": "Due",
+      "old": "2027-03-12",
+      "new": "2027-03-26",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 8d)"
+     },
+     {
+      "launch": "insights",
+      "task": "T22",
+      "column": "Due",
+      "old": "2027-03-19",
+      "new": "2027-04-02",
+      "because": "GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 1d)"
+     }
+    ],
+    "new_rows": [],
+    "gate_changes": [
+     {
+      "gate": "ga",
+      "name": "GA readiness review",
+      "review": "GA readiness review",
+      "old": "2027-03-12",
+      "new": "2027-03-26"
+     }
+    ],
+    "exceptions": {
+     "added": [],
+     "needs_re_approval": [],
+     "kept": [],
+     "moved": [],
+     "dropped": [],
+     "superseded": [],
+     "unchanged": []
+    },
+    "conflicts": [],
+    "newly_at_risk": [],
+    "no_longer_at_risk": [],
+    "launch_dates_after": [
+     {
+      "anchor": "EA",
+      "date": "2027-02-08",
+      "realistic": true,
+      "because": [],
+      "not_judged": []
+     },
+     {
+      "anchor": "GA",
+      "date": "2027-04-05",
+      "realistic": true,
+      "because": [],
+      "not_judged": []
+     }
+    ],
+    "text": "Option A: Move GA by two weeks (plan-v2 option A).\nGA moves from 2027-03-22 to 2027-04-05.\n7 task dates move:\n- T15 Beta feedback summary and go-forward decisions: Due 2027-02-12 to 2027-03-01, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 5w).\n- T16 Website and in-app copy: Due 2027-03-08 to 2027-03-22, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 2w).\n- T17 Legal copy review for GA: Due 2027-03-12 to 2027-03-26, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 10d).\n- T18 Support runbook and escalation path: Due 2027-03-08 to 2027-03-22, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 2w).\n- T20 Release notes and customer announcement: Due 2027-03-12 to 2027-03-26, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 10d).\n- T21 GA readiness review packet: Due 2027-03-12 to 2027-03-26, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 8d).\n- T22 GA launch checklist complete: Due 2027-03-19 to 2027-04-02, because GA moves from 2027-03-22 to 2027-04-05, and its lead time counts from GA (GA - 1d).\n- GA readiness review: 2027-03-12 to 2027-03-26.\nNothing is newly at risk.",
+    "conditions_dropped": [],
+    "warnings": [],
+    "proposed_rules": {
+     "schema": "launch-rules/1",
+     "launch": "insights",
+     "plan_version": "v2",
+     "option": "A",
+     "based_on": "v1",
+     "tier": 2,
+     "anchors": {
+      "EA": "2027-02-08",
+      "GA": "2027-04-05",
+      "plan_approval": "2026-11-09"
+     },
+     "calendar": {
+      "weekend": [
+       "Sat",
+       "Sun"
+      ],
+      "holidays": [
+       {
+        "date": "2026-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2026-01-19",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2026-02-16",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2026-05-25",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2026-06-19",
+        "name": "Juneteenth National Independence Day"
+       },
+       {
+        "date": "2026-07-03",
+        "name": "Independence Day (observed)",
+        "actual": "2026-07-04"
+       },
+       {
+        "date": "2026-09-07",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2026-10-12",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2026-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2026-11-26",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2026-12-25",
+        "name": "Christmas Day"
+       },
+       {
+        "date": "2027-01-01",
+        "name": "New Year's Day"
+       },
+       {
+        "date": "2027-01-18",
+        "name": "Birthday of Martin Luther King, Jr."
+       },
+       {
+        "date": "2027-02-15",
+        "name": "Washington's Birthday"
+       },
+       {
+        "date": "2027-05-31",
+        "name": "Memorial Day"
+       },
+       {
+        "date": "2027-06-18",
+        "name": "Juneteenth National Independence Day (observed)",
+        "actual": "2027-06-19"
+       },
+       {
+        "date": "2027-07-05",
+        "name": "Independence Day (observed)",
+        "actual": "2027-07-04"
+       },
+       {
+        "date": "2027-09-06",
+        "name": "Labor Day"
+       },
+       {
+        "date": "2027-10-11",
+        "name": "Columbus Day"
+       },
+       {
+        "date": "2027-11-11",
+        "name": "Veterans Day"
+       },
+       {
+        "date": "2027-11-25",
+        "name": "Thanksgiving Day"
+       },
+       {
+        "date": "2027-12-24",
+        "name": "Christmas Day (observed)",
+        "actual": "2027-12-25"
+       },
+       {
+        "date": "2027-12-31",
+        "name": "New Year's Day (observed)",
+        "actual": "2028-01-01"
+       }
+      ],
+      "holiday_observed": "as-listed",
+      "due_on_non_working_day": "previous-working-day"
+     },
+     "tasks": [
+      {
+       "id": "T01",
+       "name": "Success metric, baseline, and target agreed",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "Plan approval + 5 working days",
+       "anchor": "plan_approval",
+       "offset": 5,
+       "unit": "working",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Metric note in the launch folder"
+      },
+      {
+       "id": "T02",
+       "name": "Naming and trademark check",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 12w",
+       "anchor": "EA",
+       "offset": -84,
+       "unit": "calendar",
+       "blocks": [
+        "T03"
+       ],
+       "gate": null,
+       "deliverable": "Naming decision note"
+      },
+      {
+       "id": "T03",
+       "name": "Positioning and messaging doc",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 8w",
+       "anchor": "EA",
+       "offset": -56,
+       "unit": "calendar",
+       "blocks": [
+        "T05",
+        "T08",
+        "T12"
+       ],
+       "gate": "beta",
+       "deliverable": "Messaging doc"
+      },
+      {
+       "id": "T04",
+       "name": "Pricing and packaging approved",
+       "seat": "Pricing and packaging",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T06",
+        "T07"
+       ],
+       "gate": "beta",
+       "deliverable": "Pricing approval record"
+      },
+      {
+       "id": "T05",
+       "name": "Customer-facing launch deck",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Deck"
+      },
+      {
+       "id": "T06",
+       "name": "Billing and quoting set up for the new SKU",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Billing setup confirmation"
+      },
+      {
+       "id": "T07",
+       "name": "Sales pricing slide and discount guidance",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": null,
+       "deliverable": "Pricing slide"
+      },
+      {
+       "id": "T08",
+       "name": "Legal review of claims, terms, and NDA for early access",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 4w",
+       "anchor": "EA",
+       "offset": -28,
+       "unit": "calendar",
+       "blocks": [
+        "T09",
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Legal sign-off"
+      },
+      {
+       "id": "T09",
+       "name": "Early-access terms or NDA in place",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 3w",
+       "anchor": "EA",
+       "offset": -21,
+       "unit": "calendar",
+       "blocks": [
+        "T13"
+       ],
+       "gate": "beta",
+       "deliverable": "Signed terms or NDA template"
+      },
+      {
+       "id": "T10",
+       "name": "Sales and customer success enablement session",
+       "seat": "Enablement",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 1w",
+       "anchor": "EA",
+       "offset": -7,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Session recording and one-pager"
+      },
+      {
+       "id": "T11",
+       "name": "Demo environment and demo script",
+       "seat": "Sales engineering",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T10"
+       ],
+       "gate": "beta",
+       "deliverable": "Demo environment link and script"
+      },
+      {
+       "id": "T12",
+       "name": "Help center articles",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Published or staged articles"
+      },
+      {
+       "id": "T13",
+       "name": "Early-access customer list, invites, and feedback plan",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "beta",
+       "deliverable": "Customer list and feedback plan"
+      },
+      {
+       "id": "T14",
+       "name": "Beta readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "EA - 2w",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T15",
+       "name": "Beta feedback summary and go-forward decisions",
+       "seat": "PM",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 5w",
+       "anchor": "GA",
+       "offset": -35,
+       "unit": "calendar",
+       "blocks": [
+        "T16"
+       ],
+       "gate": "ga",
+       "deliverable": "Feedback summary"
+      },
+      {
+       "id": "T16",
+       "name": "Website and in-app copy",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [
+        "T17"
+       ],
+       "gate": "ga",
+       "deliverable": "Copy, reviewed"
+      },
+      {
+       "id": "T17",
+       "name": "Legal copy review for GA",
+       "seat": "Legal",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Legal sign-off on copy"
+      },
+      {
+       "id": "T18",
+       "name": "Support runbook and escalation path",
+       "seat": "Customer success",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 2w",
+       "anchor": "GA",
+       "offset": -14,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Runbook"
+      },
+      {
+       "id": "T20",
+       "name": "Release notes and customer announcement",
+       "seat": "PMM",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 10d",
+       "anchor": "GA",
+       "offset": -10,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": "ga",
+       "deliverable": "Release notes draft"
+      },
+      {
+       "id": "T21",
+       "name": "GA readiness review packet",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2
+       ],
+       "lead_time": "GA - 8d",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Gate packet"
+      },
+      {
+       "id": "T22",
+       "name": "GA launch checklist complete",
+       "seat": "Launch lead",
+       "tiers": [
+        1,
+        2,
+        3
+       ],
+       "lead_time": "GA - 1d",
+       "anchor": "GA",
+       "offset": -1,
+       "unit": "calendar",
+       "blocks": [],
+       "gate": null,
+       "deliverable": "Checklist"
+      }
+     ],
+     "dependencies": {
+      "slack": {
+       "unit": "calendar",
+       "min_gap_days": 0,
+       "definition": "Slack between a blocking task and the task it blocks is the number of days (in `unit`) from the blocker's Due to the blocked task's Due, less min_gap_days. A blocker's slip is how far its Forecast, or today when it is open past Due, is after its Due. A slip larger than the slack turns the blocked task red and carries the difference on down the chain; a slip the slack covers makes it amber. A cascade stops at a task that is Done or Waived."
+      },
+      "propagation": "push-past-blocker"
+     },
+     "scoring": {
+      "precedence": [
+       {
+        "id": "overdue",
+        "risk": "red"
+       },
+       {
+        "id": "forecast-after-due",
+        "risk": "red"
+       },
+       {
+        "id": "breaks-rule",
+        "risk": "red"
+       },
+       {
+        "id": "blocked-slip-exceeds-slack",
+        "risk": "red"
+       },
+       {
+        "id": "no-due-date",
+        "risk": "amber"
+       },
+       {
+        "id": "due-soon-not-started",
+        "risk": "amber",
+        "days": 7
+       },
+       {
+        "id": "stale",
+        "risk": "amber",
+        "days": 14
+       },
+       {
+        "id": "blocked-within-slack",
+        "risk": "amber"
+       }
+      ]
+     },
+     "gates": [
+      {
+       "id": "beta",
+       "name": "Beta (early access) readiness review",
+       "anchor": "EA",
+       "offset": -14,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T03",
+        "T04",
+        "T08",
+        "T09",
+        "T11",
+        "T13",
+        "T12"
+       ]
+      },
+      {
+       "id": "ga",
+       "name": "GA readiness review",
+       "anchor": "GA",
+       "offset": -8,
+       "unit": "calendar",
+       "tiers": [
+        1,
+        2
+       ],
+       "checklist": [
+        "T15",
+        "T16",
+        "T17",
+        "T06",
+        "T10",
+        "T18",
+        "T20"
+       ]
+      }
+     ],
+     "conditions": [],
+     "exceptions": [],
+     "unsupported": []
+    },
+    "saved": null
+   },
+   "stderr": "",
+   "set": 3
+  },
+  {
+   "name": "the gates a practice jump crosses",
+   "args": [
+    "gates-between",
+    "--rules",
+    "launches/insights/rules-v1.json",
+    "--from",
+    "2027-01-04",
+    "--to",
+    "2027-03-01"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "gates-between",
+    "launch": "insights",
+    "plan_version": "v1",
+    "option": null,
+    "tier": 2,
+    "from": "2027-01-04",
+    "to": "2027-03-01",
+    "anchors": {
+     "EA": "2027-02-08",
+     "GA": "2027-03-22",
+     "plan_approval": "2026-11-09"
+    },
+    "gates": [
+     {
+      "gate": "beta",
+      "name": "Beta (early access) readiness review",
+      "review": "Beta (early access) readiness review",
+      "anchor": "EA",
+      "review_date": "2027-01-25",
+      "checklist": [
+       "T03",
+       "T04",
+       "T08",
+       "T09",
+       "T11",
+       "T13",
+       "T12"
+      ]
+     }
+    ],
+    "after_target": [
+     {
+      "gate": "ga",
+      "name": "GA readiness review",
+      "review": "GA readiness review",
+      "anchor": "GA",
+      "review_date": "2027-03-12",
+      "checklist": [
+       "T15",
+       "T16",
+       "T17",
+       "T06",
+       "T10",
+       "T18",
+       "T20"
+      ]
+     }
+    ],
+    "already_past": [],
+    "note": "the jump stops at beta on 2027-01-25: score that week, draft the packet from the tracker as it stands, and wait for the decider"
+   },
+   "stderr": "",
+   "set": 3
+  },
+  {
+   "name": "owner response times with no history yet",
+   "args": [
+    "responses",
+    "--history",
+    "history/practice-history.jsonl",
+    "--launch",
+    "insights",
+    "--as-of",
+    "2027-01-04"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "responses",
+    "launch": "insights",
+    "as_of": "2027-01-04",
+    "week_entries": 0,
+    "measurable": false,
+    "simulated_only": false,
+    "summary": "Owner response times: not measurable. History has no week entries for insights.",
+    "by_owner": [],
+    "pairs": [],
+    "unanswered": [],
+    "superseded": [],
+    "unprompted": [],
+    "unmatched": [],
+    "unavailable": [],
+    "notes": [],
+    "note": "no history file yet"
+   },
+   "stderr": "",
+   "set": 3
+  },
+  {
+   "name": "US federal holidays",
+   "args": [
+    "holidays",
+    "--set",
+    "us-federal",
+    "--years",
+    "2027"
+   ],
+   "status": 0,
+   "stdout": {
+    "ok": true,
+    "command": "holidays",
+    "set": "us-federal",
+    "holidays": [
+     {
+      "date": "2027-01-01",
+      "name": "New Year's Day"
+     },
+     {
+      "date": "2027-01-18",
+      "name": "Birthday of Martin Luther King, Jr."
+     },
+     {
+      "date": "2027-02-15",
+      "name": "Washington's Birthday"
+     },
+     {
+      "date": "2027-05-31",
+      "name": "Memorial Day"
+     },
+     {
+      "date": "2027-06-18",
+      "name": "Juneteenth National Independence Day (observed)",
+      "actual": "2027-06-19"
+     },
+     {
+      "date": "2027-07-05",
+      "name": "Independence Day (observed)",
+      "actual": "2027-07-04"
+     },
+     {
+      "date": "2027-09-06",
+      "name": "Labor Day"
+     },
+     {
+      "date": "2027-10-11",
+      "name": "Columbus Day"
+     },
+     {
+      "date": "2027-11-11",
+      "name": "Veterans Day"
+     },
+     {
+      "date": "2027-11-25",
+      "name": "Thanksgiving Day"
+     },
+     {
+      "date": "2027-12-24",
+      "name": "Christmas Day (observed)",
+      "actual": "2027-12-25"
+     },
+     {
+      "date": "2027-12-31",
+      "name": "New Year's Day (observed)",
+      "actual": "2028-01-01"
+     }
+    ]
+   },
+   "stderr": "",
+   "set": 3
+  }
+ ]
+}

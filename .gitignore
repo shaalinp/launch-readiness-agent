@@ -1,0 +1,19 @@
+setup/.env
+history/launch-history.jsonl.next/
+history/practice-history.jsonl.next/
+runs/log.jsonl
+runs/.state/
+
+# Launch data: your launches, practice runs, history, write records, and
+# setup. Kept out of git so a copy of this repository does not publish them.
+# A team that shares launches through its own private repository can remove
+# this block there. The tracker, the playbook and connections.json are tracked
+# and hold your launch data once you use them, so keep your copy private.
+launches/
+practice/
+history/
+runs/
+setup/state.json
+setup/policy.json
+launch-folder/*
+!launch-folder/README.md

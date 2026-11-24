@@ -1,0 +1,53 @@
+{
+  "skill": "read-the-tracker-and-score-risk-each-week--score-week",
+  "stepId": "score-week",
+  "cases": [
+    {
+      "id": "score-week-draft-scores-and-stale-list",
+      "given": "Launch \"orion\", week starting Monday 2025-06-09. The tracker has task T1 checked done with its file present in the shared folder, T2 in progress and due 2025-06-11, and T3 untouched since last week's launch history entry. The approved plan's header defines scoring rules and the folder is reachable.",
+      "expect": [
+        "The draft exists at launches/orion/weeks/2025-06-09-status-draft.md",
+        "Every tracker task is scored red, amber, or green per the plan header's rules, and the draft states whether the launch date is still realistic with a reason",
+        "T3 appears in the list of items with no update since last week, and T1 and T2 do not"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "score-week-done-checkbox-no-file",
+      "given": "Task T7 is checked done in the tracker, the shared folder is reachable, and it contains no deliverable file for T7.",
+      "expect": [
+        "The draft flags T7 as a done checkbox with no file",
+        "T7's score does not treat the deliverable as complete on the strength of the checkbox"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "score-week-folder-unreachable",
+      "given": "The shared launch folder cannot be reached this run, and two tasks in the tracker are checked done.",
+      "expect": [
+        "The draft states that deliverables could not be verified",
+        "Neither done task is scored as if its deliverable was confirmed"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "score-week-past-due-not-on-plan",
+      "given": "Week of 2027-02-15. T06 Billing and quoting is In progress with Due 2027-02-12 and a Forecast of 2027-02-11, and its owner's last note says the setup is going well.",
+      "expect": [
+        "The draft calls T06 3 days past due, not on plan, counted from Due and not from the Forecast",
+        "T06 is red, not green"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "score-week-forecast-after-due-red",
+      "given": "Week of 2026-11-16, launch 'insights'. T04 Pricing and packaging approved is In progress with Due 2027-01-11 and the owner's Forecast 2027-01-15. T02 Naming and trademark check is Not started with Due 2026-11-16. The approved plan's rules file is launches/insights/rules-v1.json.",
+      "expect": [
+        "T04 is red because its Forecast is 4 days after Due, and the draft does not call it late yet",
+        "T02 is amber (due today and not started), not red and not late",
+        "The scores, reasons, and day counts match `launch-calc.mjs score` for rules-v1.json and as-of 2026-11-16"
+      ],
+      "enforced": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "skill": "update-the-playbook-from-the-approved-edits--update-playbook",
+  "stepId": "update-playbook",
+  "cases": [
+    {
+      "id": "update-playbook-accepted-and-edited-applied",
+      "given": "Retro file has edits 1 to 4. Launch lead answered: 1 accepted, 2 rejected, 3 accepted with her own rewording, 4 accepted as written.",
+      "expect": [
+        "The playbook contains edits 1 and 4 as written in the retro file, and edit 3 with the launch lead's wording rather than the original draft",
+        "Edit 2 does not appear anywhere in the playbook",
+        "The change log has exactly three new lines, for edits 1, 3 and 4, each with the edit number, what changed, and the date"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "update-playbook-no-answer-not-applied",
+      "given": "Retro file has edits 1 to 3. The launch lead answered accepted on 1 and 3 and gave no answer on edit 2.",
+      "expect": [
+        "Edit 2 is not applied to the playbook",
+        "Edit 2 has no line in the change log",
+        "Edits 1 and 3 are applied and logged"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "update-playbook-structure-misfit-asks-first",
+      "given": "Accepted edit 5 adds a new 'Vendor sign-off' section, but the playbook template has no place for it in its current sections. Accepted edit 6 fits an existing section.",
+      "expect": [
+        "The playbook's sections are unchanged and no new section was added before the launch lead answered",
+        "The step asks the launch lead whether to change the structure, naming edit 5",
+        "Edit 6 is applied and logged, while edit 5 has no change log line yet"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "update-playbook-nothing-accepted",
+      "given": "The launch lead rejected every numbered edit in the retro file.",
+      "expect": [
+        "The playbook content is identical to before",
+        "The change log has no new lines"
+      ],
+      "enforced": false
+    }
+  ]
+}

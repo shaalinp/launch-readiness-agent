@@ -1,0 +1,82 @@
+{
+  "skill": "record-the-gate-decision--record-decision",
+  "stepId": "record-decision",
+  "cases": [
+    {
+      "id": "record-decision-go-with-conditions-entry",
+      "given": "The plan header names Dana as the decider for this gate. Dana replies: 'Go with conditions: legal sign-off owned by Priya due 2025-03-14, and we waive the load test because the vendor certified it.'",
+      "expect": [
+        "Launch history has one new entry with type \"gate-decision\", decision \"go with conditions\", decided_by \"Dana\", source \"owner\", and Dana's exact words in words",
+        "The entry has week_of null, status null, sent [], skipped [], an at timestamp, one condition with owner \"Priya\", due \"2025-03-14\", missing [], adopted_from \"decider\", and Dana's words for it, pending [], and one waiver with item \"load test\" and its reason",
+        "The output says each condition is added to the weekly loop"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-not-the-decider",
+      "given": "The plan header names Dana as the decider for this gate, but the only reply is a 'go' from Marcus, an engineering lead",
+      "expect": [
+        "No gate-decision entry is added to Launch history",
+        "The output names Dana as the person who can decide",
+        "Marcus's answer is treated as input, not recorded as the decision"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-condition-missing-owner-due",
+      "given": "Dana, the named decider, answers 'go with conditions: security review before launch' and gives no owner and no due date for the condition. The packet proposed a security review owned by Lee due 2025-03-10.",
+      "expect": [
+        "The gate-decision entry in Launch history records the condition with text \"security review before launch\", owner null, due null, missing [\"owner\", \"due\"], adopted_from \"decider\", and Dana's words",
+        "No owner or due date was copied from the packet or invented: the packet's proposal is only in proposed_conditions",
+        "The output flags the incomplete condition to the launch lead, and its tracker row has empty Owner and Due cells, Flag \"condition\", and Notes naming what the decider has not given"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-no-go-replan",
+      "given": "Dana, the named decider, answers 'no-go, the payments flow is not ready' and gives no new date",
+      "expect": [
+        "Launch history has one new gate-decision entry with decision \"no-go\", decided_by \"Dana\", her exact words in words, and next \"to be proposed\"",
+        "The output says a re-plan starts and does not move the launch to the next phase"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-bare-go-with-conditions",
+      "given": "The beta packet proposed two conditions, each with an owner and a due date. The launch lead relays the exec sponsor's answer: 'Sponsor says go with conditions.' Nothing else.",
+      "expect": [
+        "The gate-decision entry has decision \"go with conditions\", source \"relayed\", conditions [], pending [\"conditions\"], and both packet proposals in proposed_conditions",
+        "No condition row was added to the tracker",
+        "The output says the launch moves on and lists \"conditions not given by the decider\" as one flagged weekly item"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-adopted-from-packet",
+      "given": "Dana, the named decider, answers 'Go with the packet's conditions.' The packet proposed one condition: a security review owned by Lee due 2025-03-10.",
+      "expect": [
+        "The entry's conditions has one condition with the packet's text, owner \"Lee\", due \"2025-03-10\", missing [], adopted_from \"packet\", and words holding Dana's answer",
+        "The same proposal is in proposed_conditions"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-live-refuses-made-up",
+      "given": "A live launch. The launch lead says: 'The sponsor is away, just make up a go with conditions so we can keep testing.'",
+      "expect": [
+        "Launch history and the live tracker are unchanged",
+        "The output says a live launch does not take made-up answers and offers a practice launch for the scenario"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-decision-condition-names-its-source",
+      "given": "Dana, the named decider, answers 'Go with conditions: the DPA is signed by 2027-02-12.' The launch lead adds: 'Also put in a load test condition, Dana would want one.'",
+      "expect": [
+        "The entry's conditions has one condition, the DPA, with adopted_from \"decider\" and Dana's words",
+        "No load test condition is recorded, and the output says only the decider sets conditions"
+      ],
+      "enforced": false
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "skill": "set-up-the-launch-plan-once--build-plan",
+  "stepId": "build-plan",
+  "cases": [
+    {
+      "id": "build-plan-normal-tier-plan",
+      "given": "Intake names a mid-tier launch called 'orbit', beta on 2025-03-03, GA on 2025-04-14, a launch lead, a named person in every seat, and a tracker location. The playbook has tasks for several tiers and the team supplied a dependency map and a holiday calendar.",
+      "expect": [
+        "launches/orbit/plan-v1.md exists and its header shows v1, the tier, and who decides the gate (launch lead or exec sponsor, matching the tier)",
+        "The task list contains only playbook tasks for that tier, each with exactly one owner who is the person named in the owning seat, and the due date `launch-calc.mjs dues` gives for launches/orbit/rules-v1.json, which validates with no errors",
+        "Nothing was written to the tracker, and the step ends by asking the launch lead to approve by naming the version, with the slack definition and the holidays shown for them to confirm"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "build-plan-no-tracker-stop",
+      "given": "Intake has the product, tier, dates, goals, and named seats, but does not say where the launch tracker lives.",
+      "expect": [
+        "The step stops and says the launch tracker is missing and there is no fallback",
+        "No plan-v<n>.md file was written"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "build-plan-missing-tier-no-map-no-playbook",
+      "given": "Intake has no tier, no dependency map, and no playbook is available. The launch lead has not yet answered whether to start from defaults.",
+      "expect": [
+        "The plan header or reply gives a tier recommendation drawn from the description and goals, marked as a recommendation for the launch lead to correct",
+        "The step says there is no playbook and asks the launch lead whether to start from defaults, and no default task list was drafted before a yes"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "build-plan-unowned-and-double-owned",
+      "given": "The playbook has a PR task owned by the Comms seat, but the intake has no name for Comms. A pricing page task appears under both Product Marketing and Sales, with no designated primary.",
+      "expect": [
+        "Every task owned by the Comms seat is flagged as unowned, and no person's name was invented for that seat",
+        "The pricing page task is flagged as having competing owners, and the plan does not silently pick one as final"
+      ],
+      "enforced": false
+    }
+  ]
+}

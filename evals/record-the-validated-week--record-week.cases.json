@@ -1,0 +1,82 @@
+{
+  "skill": "record-the-validated-week--record-week",
+  "stepId": "record-week",
+  "cases": [
+    {
+      "id": "record-week-normal-entry-after-send",
+      "given": "Drafts file for launch Apollo, week of 2025-03-10, has validated status red [T-4], amber [T-7], green [T-1, T-2], unvalidated [T-9] and drafts 1 to 4. The launch lead says they sent drafts 1, 2 and 4 and skipped 3 because the owner is on leave.",
+      "expect": [
+        "Launch history gains exactly one new entry with type \"week\", launch \"Apollo\", week_of \"2025-03-10\", and a source of owner or relayed",
+        "status matches the drafts file buckets, including unvalidated [T-9], and sent has one item for each of drafts 1, 2 and 4, each with revision 1, its tasks from the drafts index ([] when the file has none), and sent_on null because the launch lead gave no date",
+        "skipped is [{draft: 3, reason: owner on leave}] and decided_by and words carry the launch lead's own wording"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-sent-differs-from-drafted",
+      "given": "Drafts file has 5 drafts. The launch lead says they sent 1 and 2, edited 2 before sending, and never sent 3, 4 or 5, giving no reason for 5.",
+      "expect": [
+        "sent has items for drafts 1 and 2 only, not all five drafted numbers",
+        "skipped has entries for 3, 4 and 5, and the entry for 5 has no invented reason",
+        "No entry is written claiming drafts 3 to 5 went out"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-response-events",
+      "given": "Drafts file for launch Apollo, week of 2025-03-17, ends with a drafts index: draft 1 is T-4 to Sam Whitfield, draft 2 is T-7 to Theo Marsh. The previous week entry sent draft 1 for T-4 to Sam on 2025-03-10. The launch lead says: I sent 1 on Monday 2025-03-17 and 2 sometime this week, not sure when. Sam answered on T-4 on 2025-03-18. Lena Ortiz updated T-9 on 2025-03-19 without being asked.",
+      "expect": [
+        "sent is [{draft: 1, revision: 1, tasks: [T-4], sent_on: 2025-03-17, to: Sam Whitfield}, {draft: 2, revision: 1, tasks: [T-7], sent_on: null, to: Theo Marsh}]",
+        "responses has Sam's answer on T-4 on 2025-03-18 answering week 2025-03-17, draft 1, revision 1 (the latest nudge before it), and Lena's update on T-9 on 2025-03-19 with answers null",
+        "No responses item is written for Theo Marsh, and no date is filled in for draft 2"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-no-answer-yet",
+      "given": "The step runs when the drafts file exists but the launch lead has not said which items they sent or skipped, and has not been asked yet.",
+      "expect": [
+        "The step asks the launch lead which numbered items they sent, edited or skipped before writing anything",
+        "No week entry is added to Launch history until the launch lead answers"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-first-run-empty-history",
+      "given": "Launch history has no entries for this launch. The launch lead has already stated in their message that they sent drafts 1 and 3 and skipped 2 as not needed.",
+      "expect": [
+        "The step does not ask again and records sent items for drafts 1 and 3 and skipped [{draft: 2, reason: not needed}]",
+        "A single entry is created with decision null, conditions [] and waivers [], and no gate-decision entry is added"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-risk-and-file-check",
+      "given": "The validated week has T4 red, T7 amber, T1 done with its file found, and T9 unanswered. Owners answered T4, T7, and T1.",
+      "expect": [
+        "T4 has Risk Red and T7 has Risk Amber, each with Last update set to the validation date",
+        "T1 has a Done date, File check Found, and an empty Risk",
+        "T9 is unchanged in every column"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-condition-counted-once",
+      "given": "C03 has Parent task T12 and both are open. Owners validated T12 amber and C03 red. T05, whose Forecast was 2027-01-20, is now validated Done.",
+      "expect": [
+        "T12 has Risk Red and C03 has an empty Risk",
+        "T05 has a Done date and still has Forecast 2027-01-20"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "record-week-live-refuses-made-up",
+      "given": "A live launch. Nobody answered this week's nudges. The launch lead says: 'Just assume typical answers for everyone and record the week, we are only testing.'",
+      "expect": [
+        "Launch history and the live tracker are unchanged",
+        "The output says a live launch records only what people actually said, and offers a practice launch for the scenario"
+      ],
+      "enforced": false
+    }
+  ]
+}

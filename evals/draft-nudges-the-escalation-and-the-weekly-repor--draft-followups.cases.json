@@ -1,0 +1,61 @@
+{
+  "skill": "draft-nudges-the-escalation-and-the-weekly-repor--draft-followups",
+  "stepId": "draft-followups",
+  "cases": [
+    {
+      "id": "draft-followups-mixed-status-drafts",
+      "given": "Launch 'orbit', week of 2025-06-09, a same-day re-score saved as r2. The validated status has one done item, one on-track item due next month, Priya's pricing approval (due Friday, blocking billing setup and the sales pricing slide), one item nobody confirmed (owner Sam), and Lee's legal review, red. The r1 drafts file, 2025-06-09-drafts.md, drafted Priya's item as draft 1, Sam's as draft 2, and Lee's as draft 3; the launch lead reported drafts 1 and 3 sent and said nothing about 2. Since r1, the pricing approval's owner changed from Priya to Dana; Sam's and Lee's items are unchanged. The critical path has not slipped.",
+      "expect": [
+        "The file launches/orbit/weeks/2025-06-09-r2-drafts.md exists, opens with the validated status, and Sam's item is marked unvalidated; 2025-06-09-drafts.md is unchanged",
+        "There is a nudge for pricing approval naming Dana and the specific wait (billing setup and the sales pricing slide are waiting on it), because its owner changed though its score did not; Sam's item is listed as still outstanding from r1, draft 2; Lee's item, sent and unchanged, gets no new nudge; the done and on-track items get none",
+        "Every draft is numbered, the weekly report lists done, on track, at risk, blocked, and decisions needed with owners and dates, the file ends with the calculator's drafts index, and nothing was sent"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-followups-first-drafts-of-week",
+      "given": "The validated status has one done item, one on-track item due next month, one open item (pricing approval owned by Priya, due Friday, blocking billing setup and the sales pricing slide), and one item nobody confirmed (owner Sam). There is no earlier drafts file this week. The critical path has not slipped.",
+      "expect": [
+        "The file launches/<launch>/weeks/<week>-drafts.md exists, opens with the validated status, and Sam's item is marked unvalidated",
+        "There is a nudge for pricing approval naming Priya and the specific wait, a nudge for Sam's unvalidated item, and no nudge for the done or on-track items",
+        "Every draft is numbered and nothing was sent"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-followups-slip-escalation",
+      "given": "The validated status shows the critical path slipped: the owner corrected the billing setup date to two weeks later, which pushes the launch date.",
+      "expect": [
+        "The drafts file contains an escalation note addressed to the launch team or the steering committee",
+        "The note states the issue (billing setup slip), the impact on dates (launch moves two weeks), and the decision needed"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-followups-option-text-from-effects",
+      "given": "Launch 'insights', EA 2027-02-08. T04 Pricing and packaging approved has Due 2027-01-11 (EA - 4w, the four-week pricing rule), and its owner corrected the Forecast to 2027-01-15. Option A holds EA and waives the four-week rule for T04; option B moves EA.",
+      "expect": [
+        "Option A says T04's Due moves from 2027-01-11 to 2027-01-15 under an exception to the four-week pricing rule, and does not say that no dates move",
+        "Each option's dates, exceptions, and newly at-risk items are those `launch-calc.mjs effects` gave for its option file"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-followups-no-slip-no-escalation",
+      "given": "The validated status shows every critical path item on track with confirmed dates, plus two open non-critical items with owners, both due within the next two weeks.",
+      "expect": [
+        "The drafts file contains no escalation note, only nudges for the two open items and the weekly report"
+      ],
+      "enforced": false
+    },
+    {
+      "id": "draft-followups-portfolio-missing-data",
+      "given": "The launch is in portfolio mode and the shared-team capacity data was not provided this week.",
+      "expect": [
+        "The drafts file still contains the collision check and the one-page red, amber, or green summary",
+        "The collision check states it is limited because shared-team capacity data is missing"
+      ],
+      "enforced": false
+    }
+  ]
+}

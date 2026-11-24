@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-11-24",
+  "connections": [],
+  "systems": [
+    {
+      "systemId": "sys-tracker",
+      "name": "Launch tracker",
+      "status": "bound",
+      "connector": "local-file",
+      "connectorName": "Files in this folder",
+      "location": "tracker/launch-tracker.csv",
+      "actions": [
+        "read",
+        "write",
+        "append"
+      ]
+    },
+    {
+      "systemId": "sys-folder",
+      "name": "Shared launch folder",
+      "status": "bound",
+      "connector": "local-file",
+      "connectorName": "Files in this folder",
+      "location": "launch-folder/",
+      "actions": [
+        "read"
+      ]
+    },
+    {
+      "systemId": "sys-playbook",
+      "name": "Playbook",
+      "status": "bound",
+      "connector": "local-file",
+      "connectorName": "Files in this folder",
+      "location": "playbook/playbook.md",
+      "actions": [
+        "read",
+        "write"
+      ]
+    }
+  ]
+}

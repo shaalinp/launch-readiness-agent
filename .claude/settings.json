@@ -1,0 +1,177 @@
+{
+  "model": "claude-opus-5-5",
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/check-connections.mjs)",
+      "Bash(node evals/score.mjs *)",
+      "Bash(node scripts/append-store.mjs launch-history)",
+      "Bash(node scripts/append-store.mjs practice-history)",
+      "Skill(first-run)",
+      "Skill(compile-the-retro-and-draft-playbook-edits-after--draft-retro)",
+      "Skill(draft-nudges-the-escalation-and-the-weekly-repor--draft-followups)",
+      "Skill(draft-the-gate-packet-before-a-readiness-review--draft-packet)",
+      "Skill(launch-readiness--rules)",
+      "Skill(load-the-approved-plan-into-the-tracker-once--load-tracker)",
+      "Skill(read-the-tracker-and-score-risk-each-week--score-week)",
+      "Skill(recalculate-dates-when-a-date-scope-or-no-go-mov--draft-replan)",
+      "Skill(record-the-gate-decision--record-decision)",
+      "Skill(record-the-validated-week--record-week)",
+      "Skill(set-up-the-launch-plan-once--build-plan)",
+      "Skill(update-the-playbook-from-the-approved-edits--update-playbook)",
+      "Skill(update-the-tracker-with-the-approved-dates--update-tracker)",
+      "Edit(./setup/state.json)",
+      "Edit(./launches/**)",
+      "Edit(./practice/**)",
+      "Edit(./history/*.jsonl.next/**)",
+      "Bash(node scripts/intake.mjs set *)",
+      "Bash(node scripts/intake.mjs get *)",
+      "Bash(mkdir -p launches/*)",
+      "Bash(mkdir -p practice/*)",
+      "Bash(node scripts/stage-write.mjs *)",
+      "Bash(node scripts/tracker-write.mjs *)",
+      "Bash(node scripts/reconcile.mjs *)",
+      "Bash(node scripts/set-mode.mjs *)",
+      "Edit(./runs/proposed.json)",
+      "Edit(./runs/readback.json)",
+      "Bash(node scripts/launch-calc.mjs *)"
+    ],
+    "deny": [
+      "Read(./setup/.env)",
+      "Edit(./setup/.env)",
+      "Edit(./history/launch-history.jsonl)",
+      "Write(./history/launch-history.jsonl)",
+      "Edit(./history/practice-history.jsonl)",
+      "Write(./history/practice-history.jsonl)",
+      "Edit(./scripts/append-store.mjs)",
+      "Write(./scripts/append-store.mjs)",
+      "Edit(./scripts/entry-contracts.mjs)",
+      "Write(./scripts/entry-contracts.mjs)",
+      "Edit(./runs/log.jsonl)",
+      "Write(./runs/log.jsonl)",
+      "Edit(./runs/.state/**)",
+      "Write(./runs/.state/**)",
+      "Edit(./setup/policy.json)",
+      "Write(./setup/policy.json)",
+      "Edit(./runs/txn/**)",
+      "Write(./runs/txn/**)",
+      "Edit(./scripts/write-gate.mjs)",
+      "Write(./scripts/write-gate.mjs)",
+      "Edit(./scripts/stage-write.mjs)",
+      "Write(./scripts/stage-write.mjs)",
+      "Edit(./scripts/tracker-write.mjs)",
+      "Write(./scripts/tracker-write.mjs)",
+      "Edit(./scripts/reconcile.mjs)",
+      "Write(./scripts/reconcile.mjs)",
+      "Edit(./scripts/set-mode.mjs)",
+      "Write(./scripts/set-mode.mjs)",
+      "Edit(./.claude/hooks/guard-tracker.mjs)",
+      "Write(./.claude/hooks/guard-tracker.mjs)",
+      "Edit(./scripts/bind-system.mjs)",
+      "Write(./scripts/bind-system.mjs)",
+      "Edit(./scripts/launch-calc.mjs)",
+      "Write(./scripts/launch-calc.mjs)"
+    ],
+    "ask": [
+      "Bash(node scripts/bind-system.mjs *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-notice.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 || exit 0; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/run-log-session.mjs",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$CLAUDE_PLUGIN_ROOT\" ] && exit 0; [ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 || exit 0; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/scripts/reconcile.mjs --session-start",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 && node -e 'process.exit(+process.versions.node.split(\".\")[0] < 18 ? 1 : 0)' 2>/dev/null || { echo '{\"systemMessage\":\"Node.js is not installed, so the safeguards in this folder are not running: a key pasted into chat is not caught, and the tools they guard are blocked. Install Node.js LTS, then fully quit and reopen the app (README.md, the Node.js step).\"}'; exit 0; }; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/guard-prompt-secrets.mjs"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*__publish.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/no-publish.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*|Artifact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$CLAUDE_PLUGIN_ROOT\" ] && exit 0; [ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 && node -e 'process.exit(+process.versions.node.split(\".\")[0] < 18 ? 1 : 0)' 2>/dev/null || { echo 'Node.js is not installed, so the safeguards in this folder cannot run. The tools they guard stay blocked until it is. Install Node.js LTS, then fully quit and reopen the app (README.md, the Node.js step).' >&2; exit 2; }; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/no-undeclared-outbound.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 && node -e 'process.exit(+process.versions.node.split(\".\")[0] < 18 ? 1 : 0)' 2>/dev/null || { echo 'Node.js is not installed, so the safeguards in this folder cannot run. The tools they guard stay blocked until it is. Install Node.js LTS, then fully quit and reopen the app (README.md, the Node.js step).' >&2; exit 2; }; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/guard-append.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|Write|Grep|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 && node -e 'process.exit(+process.versions.node.split(\".\")[0] < 18 ? 1 : 0)' 2>/dev/null || { echo 'Node.js is not installed, so the safeguards in this folder cannot run. The tools they guard stay blocked until it is. Install Node.js LTS, then fully quit and reopen the app (README.md, the Node.js step).' >&2; exit 2; }; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/guard-secrets.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*__(update_values|append_values|batch_clear_values|update_formulas)|Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$CLAUDE_PLUGIN_ROOT\" ] && exit 0; [ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 && node -e 'process.exit(+process.versions.node.split(\".\")[0] < 18 ? 1 : 0)' 2>/dev/null || { echo 'Node.js is not installed, so the safeguards in this folder cannot run. The tools they guard stay blocked until it is. Install Node.js LTS, then fully quit and reopen the app (README.md, the Node.js step).' >&2; exit 2; }; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/guard-tracker.mjs"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -r \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh ] && . \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/node-path.sh; command -v node >/dev/null 2>&1 || exit 0; node \"${CLAUDE_PLUGIN_ROOT:-$CLAUDE_PROJECT_DIR}\"/.claude/hooks/run-log-stop.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
